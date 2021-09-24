@@ -38,22 +38,22 @@
 - (void)createView {
     _actionBtn = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button setTitle:_item.title forState:UIControlStateNormal];
-        [button setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
-        button.titleLabel.font = [UIFont systemFontOfSize:14 weight:UIFontWeightMedium];
-        [button addTarget:self action:@selector(didClick) forControlEvents:UIControlEventTouchUpInside];
+        [button setTitle:self.item.title forState:UIControlStateNormal];
+        [button setTitleColor:self.item.config.color forState:UIControlStateNormal];
+        button.titleLabel.font = self.item.config.font;
+        [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
     });
     _verticalLineView = ({
         UIView *view = [[UIView alloc] init];
-        view.backgroundColor = self.textColor;
+        view.backgroundColor = self.item.config.lineColor;
         [self addSubview:view];
         view;
     });
 }
 
-- (void)didClick {
+- (void)onClick {
     if (self.item.handler) {
         self.item.handler();
     } else {
@@ -64,6 +64,7 @@
 #pragma clang diagnostic pop
         }
     }
+    
     if ([self.superview.superview isKindOfClass:[XMMenuView class]]) {
         [((XMMenuView *)self.superview.superview).popover hideMenu];
     }

@@ -9,34 +9,41 @@
 
 @interface XMMenuItem()
 
-@property(nonatomic, copy)   NSString *title;
-@property(nonatomic, strong) UIImage  *image;
-@property(nonatomic)         SEL       action;
-@property(nonatomic, weak)   id        target;
-@property(nonatomic, copy)   void      (^handler)(void);
-
 @end
 
 @implementation XMMenuItem
 
 - (instancetype)initWithTitle:(NSString *)title
-                       target:(id)target
-                       action:(SEL)action {
+                actionHandler:(void (^)(void))handler {
     self = [super init];
     if (self) {
         self.title = title;
-        self.action = action;
-        self.target = target;
+        self.handler = handler;
+        self.config = [XMMenuItemConfig defaultConfig];
     }
     return self;
 }
 
 - (instancetype)initWithTitle:(NSString *)title
-                actionHandler:(void (^)(void))handler {
+                       target:(id)target
+                       action:(SEL)action {
     self = [super init];
     if (self) {
         self.title = title;
+        self.action = action;
+        self.target = target;
+        self.config = [XMMenuItemConfig defaultConfig];
+    }
+    return self;
+}
+
+- (instancetype)initWithImage:(UIImage *)image
+                actionHandler:(void (^)(void))handler {
+    self = [super init];
+    if (self) {
+        self.image = image;
         self.handler = handler;
+        self.config = [XMMenuItemConfig defaultConfig];
     }
     return self;
 }
@@ -49,16 +56,20 @@
         self.image = image;
         self.action = action;
         self.target = target;
+        self.config = [XMMenuItemConfig defaultConfig];
     }
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithTitle:(NSString *)title
+                        image:(UIImage *)image
                 actionHandler:(void (^)(void))handler {
     self = [super init];
     if (self) {
+        self.title = title;
         self.image = image;
         self.handler = handler;
+        self.config = [XMMenuItemConfig defaultConfig];
     }
     return self;
 }
@@ -73,21 +84,9 @@
         self.image = image;
         self.action = action;
         self.target = target;
+        self.config = [XMMenuItemConfig defaultConfig];
     }
     return self;
-}
-
-- (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
-                actionHandler:(void (^)(void))handler {
-    self = [super init];
-    if (self) {
-        self.title = title;
-        self.image = image;
-        self.handler = handler;
-    }
-    return self;
-    
 }
 
 @end

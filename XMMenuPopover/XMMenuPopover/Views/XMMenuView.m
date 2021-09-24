@@ -40,7 +40,7 @@
     _containerView.layer.masksToBounds = YES;
     
     switch (self.popover.style) {
-        case XMMenuStyleXM:
+        case XMMenuStyleDefault:
         case XMMenuStyleSystem:
             [self layoutXMStyle];
             break;
@@ -100,7 +100,7 @@
             return 52;
         case XMMenuStyleQQ:
             return 69;
-        case XMMenuStyleXM:
+        case XMMenuStyleDefault:
             return 45;
         default:
             return 0;
@@ -118,7 +118,7 @@
             return 66;
         case XMMenuStyleQQ:
             return 44;
-        case XMMenuStyleXM:
+        case XMMenuStyleDefault:
             return 37;
         default:
             return 0;
@@ -132,12 +132,28 @@
             return 13;
         case XMMenuStyleDingTalk:
             return 10;
-        case XMMenuStyleXM:
+        case XMMenuStyleDefault:
             return 5;
         default:
             return 0;
     }
 }
+
+//- (CGFloat)widthWithPadding:(CGFloat)padding {
+//    CGFloat totalWidth = 0;
+//    for (XMMenuItem *item in _menuItems) {
+//        CGFloat width = [item.title boundingRectWithSize:CGSizeMake(XM_ScreenWidth - padding * 2 - 30, 30) options:0 attributes:@{
+//            NSFontAttributeName:[UIFont systemFontOfSize:14]
+//        } context:nil].size.width;
+//
+//        if (width > (XM_ScreenWidth - 30.0) / 2.0) {
+//            width = (XM_ScreenWidth - 30) / 2.0;
+//        }
+//        width += padding * 2;
+//        totalWidth += width;
+//    }
+//    return totalWidth;
+//}
 
 
 - (void)drawRect:(CGRect)rect {

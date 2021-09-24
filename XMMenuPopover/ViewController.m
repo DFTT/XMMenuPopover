@@ -20,12 +20,14 @@
 
 - (IBAction)showPopover:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleXM;
+    menu.style = XMMenuStyleDefault;
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"88");
     }];
     
-    menu.menuItems = @[item1];
+    XMMenuItem *item2 = [[XMMenuItem alloc] initWithTitle:@"XXOO" target:self action:@selector(clickAction)];
+    
+    menu.menuItems = @[item1,item2];
     
     CGRect rect = sender.bounds;
     rect.origin.y += rect.size.height + 3;
@@ -34,9 +36,13 @@
     [menu showMenuFromView:sender rect:sender.bounds animated:YES];
 }
 
+- (void)clickAction {
+    NSLog(@"XXOO");
+}
+
 - (IBAction)showPopover2:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleXM;
+    menu.style = XMMenuStyleDefault;
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"5");
     }];
@@ -63,15 +69,15 @@
         NSLog(@"2");
     }];
     
-    XMMenuItem *item3 = [[XMMenuItem alloc] initWithTitle:@"删除" actionHandler:^{
+    XMMenuItem *item3 = [[XMMenuItem alloc] initWithTitle:@"搜一搜" actionHandler:^{
         NSLog(@"3");
     }];
     
-    XMMenuItem *item4 = [[XMMenuItem alloc] initWithTitle:@"删除1" actionHandler:^{
+    XMMenuItem *item4 = [[XMMenuItem alloc] initWithTitle:@"加入收藏" actionHandler:^{
         NSLog(@"4");
     }];
     
-    XMMenuItem *item5 = [[XMMenuItem alloc] initWithTitle:@"删除2" actionHandler:^{
+    XMMenuItem *item5 = [[XMMenuItem alloc] initWithTitle:@"发送给好友" actionHandler:^{
         
     }];
     

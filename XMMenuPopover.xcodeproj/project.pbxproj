@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEA9060626FB2CEA00B0BC8D /* XMMenuPopover+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */; };
+		AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */; };
 		AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */; };
 		AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */; };
 		AEF183362632B05100F254C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183352632B05100F254C4 /* AppDelegate.m */; };
@@ -17,7 +19,6 @@
 		AEF183442632B05200F254C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF183422632B05200F254C4 /* LaunchScreen.storyboard */; };
 		AEF183472632B05200F254C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183462632B05200F254C4 /* main.m */; };
 		AEF183502632B20800F254C4 /* XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1834F2632B20800F254C4 /* XMMenuPopover.m */; };
-		AEF183722634FA6800F254C4 /* UIView+XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183712634FA6800F254C4 /* UIView+XMMenuPopover.m */; };
 		AEF1837B263538D100F254C4 /* XMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1837A263538D100F254C4 /* XMMenuItem.m */; };
 		AEF1838026353B3400F254C4 /* XMMenuItemBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1837F26353B3400F254C4 /* XMMenuItemBaseView.m */; };
 		AEF183842635463100F254C4 /* XMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183832635463100F254C4 /* XMMenuView.m */; };
@@ -25,11 +26,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AEA9060426FB2CEA00B0BC8D /* XMMenuPopover+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMMenuPopover+Layout.h"; sourceTree = "<group>"; };
+		AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMMenuPopover+Layout.m"; sourceTree = "<group>"; };
+		AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemConfig.h; sourceTree = "<group>"; };
+		AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemConfig.m; sourceTree = "<group>"; };
 		AEE6F43D2636C05100AE4D35 /* XMMenuItemSystemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemSystemView.h; sourceTree = "<group>"; };
 		AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemSystemView.m; sourceTree = "<group>"; };
 		AEE6F46A26379EA300AE4D35 /* XMMenuPopoverOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuPopoverOverlayView.h; sourceTree = "<group>"; };
 		AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopoverOverlayView.m; sourceTree = "<group>"; };
-		AEF183312632B05100F254C4 /* MMMenuPopover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MMMenuPopover.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEF183312632B05100F254C4 /* XMMenuPopover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMMenuPopover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF183342632B05100F254C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEF183352632B05100F254C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		AEF183372632B05100F254C4 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -43,8 +48,6 @@
 		AEF183462632B05200F254C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEF1834E2632B20800F254C4 /* XMMenuPopover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuPopover.h; sourceTree = "<group>"; };
 		AEF1834F2632B20800F254C4 /* XMMenuPopover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopover.m; sourceTree = "<group>"; };
-		AEF183702634FA6800F254C4 /* UIView+XMMenuPopover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+XMMenuPopover.h"; sourceTree = "<group>"; };
-		AEF183712634FA6800F254C4 /* UIView+XMMenuPopover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+XMMenuPopover.m"; sourceTree = "<group>"; };
 		AEF18379263538D100F254C4 /* XMMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItem.h; sourceTree = "<group>"; };
 		AEF1837A263538D100F254C4 /* XMMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItem.m; sourceTree = "<group>"; };
 		AEF1837E26353B3400F254C4 /* XMMenuItemBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemBaseView.h; sourceTree = "<group>"; };
@@ -70,7 +73,7 @@
 		AEF183282632B05100F254C4 = {
 			isa = PBXGroup;
 			children = (
-				AEF183332632B05100F254C4 /* MMMenuPopover */,
+				AEF183332632B05100F254C4 /* XMMenuPopover */,
 				AEF183322632B05100F254C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,12 +81,12 @@
 		AEF183322632B05100F254C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AEF183312632B05100F254C4 /* MMMenuPopover.app */,
+				AEF183312632B05100F254C4 /* XMMenuPopover.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AEF183332632B05100F254C4 /* MMMenuPopover */ = {
+		AEF183332632B05100F254C4 /* XMMenuPopover */ = {
 			isa = PBXGroup;
 			children = (
 				AEF183342632B05100F254C4 /* AppDelegate.h */,
@@ -99,7 +102,7 @@
 				AEF183452632B05200F254C4 /* Info.plist */,
 				AEF183462632B05200F254C4 /* main.m */,
 			);
-			path = MMMenuPopover;
+			path = XMMenuPopover;
 			sourceTree = "<group>";
 		};
 		AEF18377263538AA00F254C4 /* XMMenuPopover */ = {
@@ -107,6 +110,8 @@
 			children = (
 				AEF1834E2632B20800F254C4 /* XMMenuPopover.h */,
 				AEF1834F2632B20800F254C4 /* XMMenuPopover.m */,
+				AEA9060426FB2CEA00B0BC8D /* XMMenuPopover+Layout.h */,
+				AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */,
 				AEF1838F2636971200F254C4 /* Views */,
 				AEF183912636973400F254C4 /* MenuModel */,
 				AEF1839526369D4B00F254C4 /* Categorys */,
@@ -132,6 +137,8 @@
 			children = (
 				AEF18379263538D100F254C4 /* XMMenuItem.h */,
 				AEF1837A263538D100F254C4 /* XMMenuItem.m */,
+				AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */,
+				AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */,
 			);
 			path = MenuModel;
 			sourceTree = "<group>";
@@ -150,8 +157,6 @@
 		AEF1839526369D4B00F254C4 /* Categorys */ = {
 			isa = PBXGroup;
 			children = (
-				AEF183702634FA6800F254C4 /* UIView+XMMenuPopover.h */,
-				AEF183712634FA6800F254C4 /* UIView+XMMenuPopover.m */,
 				AEF1839726369D7600F254C4 /* UIButton+XMMenuPopover.h */,
 				AEF1839826369D7600F254C4 /* UIButton+XMMenuPopover.m */,
 			);
@@ -161,9 +166,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AEF183302632B05100F254C4 /* MMMenuPopover */ = {
+		AEF183302632B05100F254C4 /* XMMenuPopover */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AEF1834A2632B05200F254C4 /* Build configuration list for PBXNativeTarget "MMMenuPopover" */;
+			buildConfigurationList = AEF1834A2632B05200F254C4 /* Build configuration list for PBXNativeTarget "XMMenuPopover" */;
 			buildPhases = (
 				AEF1832D2632B05100F254C4 /* Sources */,
 				AEF1832E2632B05100F254C4 /* Frameworks */,
@@ -173,9 +178,9 @@
 			);
 			dependencies = (
 			);
-			name = MMMenuPopover;
+			name = XMMenuPopover;
 			productName = MMMenuPopover;
-			productReference = AEF183312632B05100F254C4 /* MMMenuPopover.app */;
+			productReference = AEF183312632B05100F254C4 /* XMMenuPopover.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +196,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AEF1832C2632B05100F254C4 /* Build configuration list for PBXProject "MMMenuPopover" */;
+			buildConfigurationList = AEF1832C2632B05100F254C4 /* Build configuration list for PBXProject "XMMenuPopover" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -204,7 +209,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AEF183302632B05100F254C4 /* MMMenuPopover */,
+				AEF183302632B05100F254C4 /* XMMenuPopover */,
 			);
 		};
 /* End PBXProject section */
@@ -233,12 +238,13 @@
 				AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */,
 				AEF1839926369D7600F254C4 /* UIButton+XMMenuPopover.m in Sources */,
 				AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */,
+				AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */,
 				AEF183472632B05200F254C4 /* main.m in Sources */,
 				AEF183502632B20800F254C4 /* XMMenuPopover.m in Sources */,
 				AEF183392632B05100F254C4 /* SceneDelegate.m in Sources */,
 				AEF183842635463100F254C4 /* XMMenuView.m in Sources */,
-				AEF183722634FA6800F254C4 /* UIView+XMMenuPopover.m in Sources */,
 				AEF1838026353B3400F254C4 /* XMMenuItemBaseView.m in Sources */,
+				AEA9060626FB2CEA00B0BC8D /* XMMenuPopover+Layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +389,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5N6EB6624;
-				INFOPLIST_FILE = MMMenuPopover/Info.plist;
+				INFOPLIST_FILE = XMMenuPopover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -401,7 +407,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Q5N6EB6624;
-				INFOPLIST_FILE = MMMenuPopover/Info.plist;
+				INFOPLIST_FILE = XMMenuPopover/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -415,7 +421,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AEF1832C2632B05100F254C4 /* Build configuration list for PBXProject "MMMenuPopover" */ = {
+		AEF1832C2632B05100F254C4 /* Build configuration list for PBXProject "XMMenuPopover" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEF183482632B05200F254C4 /* Debug */,
@@ -424,7 +430,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AEF1834A2632B05200F254C4 /* Build configuration list for PBXNativeTarget "MMMenuPopover" */ = {
+		AEF1834A2632B05200F254C4 /* Build configuration list for PBXNativeTarget "XMMenuPopover" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AEF1834B2632B05200F254C4 /* Debug */,

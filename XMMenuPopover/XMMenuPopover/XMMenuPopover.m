@@ -38,7 +38,8 @@ static XMMenuPopover *popover;
     self.lineColor = UIColor.whiteColor;
     self.cornerRadius = 5;
     self.padding = 15;
-    self.style = XMMenuStyleSystem;
+    self.style = XMMenuStyleDefault;
+    self.avoidNavigationBar = YES;
 }
 
 - (void)showMenuFromView:(UIView *)targetView
@@ -96,15 +97,20 @@ static XMMenuPopover *popover;
     self.menuView.arrowDirection = XMMenuViewArrowDown;
     CGRect contentFrame = CGRectMake(originX, originY, [self width], [self height]);
     
-    CGFloat navHeight = 64.0;
-    if (@available(iOS 11.0, *)) {
-        CGFloat safeBottom = [UIApplication sharedApplication] .windows.firstObject.safeAreaInsets.bottom;
-        if (safeBottom > 0) {
-            navHeight = 88.0;
+    //顶部稍微留点距离
+    CGFloat topMargin = 20;
+    //如果需要避开导航条，则需要调整位置
+    if (self.avoidNavigationBar) {
+        topMargin = 64.0;
+        if (@available(iOS 11.0, *)) {
+            CGFloat safeBottom = [UIApplication sharedApplication] .windows.firstObject.safeAreaInsets.bottom;
+            if (safeBottom > 0) {
+                topMargin = 88.0;
+            }
         }
     }
     
-    if (CGRectGetMinY(targetRectToWindow) - [self height] < navHeight) {
+    if (CGRectGetMinY(targetRectToWindow) - [self height] < topMargin) {
         //在底部展示
         contentFrame.origin.y = CGRectGetMaxY(targetRectToWindow) + 1;
         self.menuView.arrowDirection = XMMenuViewArrowUp;
@@ -299,7 +305,7 @@ static XMMenuPopover *popover;
         default:
             return 5;
     }
-    return  _cornerRadius;
+    return _cornerRadius;
 }
 
 - (UIColor *)highLightColor {
@@ -319,7 +325,6 @@ static XMMenuPopover *popover;
             return _color;
     }
 }
-
 
 /// 整个菜单在屏幕上的坐标
 - (CGRect)menuFrame {
