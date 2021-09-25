@@ -34,8 +34,6 @@ static XMMenuPopover *popover;
 #pragma mark - Default Config
 - (void)config {
     self.color = [UIColor.blackColor colorWithAlphaComponent:0.9];
-    self.textColor = UIColor.whiteColor;
-    self.lineColor = UIColor.whiteColor;
     self.cornerRadius = 5;
     self.padding = 15;
     self.style = XMMenuStyleDefault;
@@ -298,17 +296,6 @@ static XMMenuPopover *popover;
         default:                    return _cornerRadius;
     }
     return _cornerRadius;
-}
-
-- (UIColor *)highLightColor {
-    if (_highLightColor != nil) { return _highLightColor; }
-    switch (_style) {
-        case XMMenuStyleWechat:     return UIColor.redColor;
-        case XMMenuStyleDingTalk:   return UIColor.yellowColor;
-        case XMMenuStyleQQ:         return UIColor.lightGrayColor;
-        case XMMenuStyleSystem:     return UIColor.darkGrayColor;
-        default:                    return _color;
-    }
 }
 
 /// 整个菜单在屏幕上的坐标

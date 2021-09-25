@@ -128,7 +128,6 @@
     CGContextSetFillColorWithColor(context, self.color.CGColor); // 设置填充颜色
 
     CGFloat radius = self.cornerRadius;
-    CGFloat offset = strokeWidth;
     CGFloat triangleW = self.triangleWidth;
     CGFloat triangleH = self.triangleheight;
     CGFloat triangleCenterX = self.triangleCenterX;
@@ -137,58 +136,58 @@
     CGContextBeginPath(context);
     CGContextMoveToPoint(
         context,
-        radius + offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset
+        radius + strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth
     );
     
     CGContextAddLineToPoint(
         context,
-        round(triangleCenterX - triangleW / 2.0f) - offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset
+        round(triangleCenterX - triangleW / 2.0f) - strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth
     );
     
     CGContextAddLineToPoint(
         context,
         triangleCenterX,
-        dirction == 0 ? 0 : height - offset
+        dirction == 0 ? 0 : height - strokeWidth
     );
     
     CGContextAddLineToPoint(
         context,
-        round(triangleCenterX + triangleW / 2.0f) + offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset
+        round(triangleCenterX + triangleW / 2.0f) + strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth
     );
     
     CGContextAddArcToPoint(
         context,
-        width - offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset,
-        width - offset,
+        width - strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth,
+        width - strokeWidth,
         height / 2,
         radius - strokeWidth
     );
     CGContextAddArcToPoint(
         context,
-        width - offset,
-        dirction == 0 ? height - offset : offset,
-        width - radius - offset,
-        dirction == 0 ? height - offset : offset,
+        width - strokeWidth,
+        dirction == 0 ? height - strokeWidth : strokeWidth,
+        width - radius - strokeWidth,
+        dirction == 0 ? height - strokeWidth : strokeWidth,
         radius - strokeWidth
     );
     CGContextAddArcToPoint(
         context,
-        offset,
-        dirction == 0 ? height - offset : offset,
-        offset,
-        dirction == 0 ? height - radius : radius + offset,
+        strokeWidth,
+        dirction == 0 ? height - strokeWidth : strokeWidth,
+        strokeWidth,
+        dirction == 0 ? height - radius : radius + strokeWidth,
         radius - strokeWidth
     );
     CGContextAddArcToPoint(
         context,
-        offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset,
-        radius + offset,
-        dirction == 0 ? triangleH + offset : height - triangleH - offset,
+        strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth,
+        radius + strokeWidth,
+        dirction == 0 ? triangleH + strokeWidth : height - triangleH - strokeWidth,
         radius - strokeWidth
     );
     CGContextClosePath(context);

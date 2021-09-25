@@ -15,29 +15,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(class, nonatomic, readonly) XMMenuPopover *sharedMenuPopover;
 
-@property(nonatomic,getter=isMenuVisible) BOOL menuVisible;        // default is NO
+@property(nonatomic,getter=isMenuVisible) BOOL menuVisible;        // 默认值： NO
 
 ///default is XMMenuStyleDefault
 @property(nonatomic,assign) XMMenuStyle style;
 @property(nullable,nonatomic,copy) NSArray<XMMenuItem *> *menuItems;
 
-//圆角，default is 5
+//圆角，默认值： 5
 @property(nonatomic,assign) CGFloat cornerRadius;
-///气泡距离屏幕左右的最小间距，default is 15
+///气泡距离屏幕左右的最小间距，默认值： 15
 @property(nonatomic,assign) CGFloat padding;
-///颜色，default is black(alpha = 0.9)
+///颜色，默认值： black(alpha = 0.9) 【包括三角的颜色】
 @property(nonatomic,strong) UIColor *color;
-@property(nonatomic,strong) UIColor *highLightColor;
-///文本颜色，default is white
-@property(nonatomic,strong) UIColor *textColor;
-///竖线颜色，default is white
-@property(nonatomic,strong) UIColor *lineColor;
 
 //!!!!: 自定义View，如果设置了自定义View，其他属性无效， 自定义View必须设置size
 @property(nonatomic,strong) UIView *customView;
 
 @property(nonatomic,readonly) CGRect menuFrame;
-///是否避开导航条，default is YES
+///是否避开导航条，默认值： YES
 @property(nonatomic,assign) BOOL avoidNavigationBar;
 
 ///展示菜单项控件
