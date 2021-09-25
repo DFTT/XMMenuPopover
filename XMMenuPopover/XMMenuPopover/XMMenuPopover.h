@@ -11,21 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSUInteger {
-    ///XM自定义   △ Size (10 * 5) 最多支持五个菜单项
-    XMMenuStyleDefault  = 0,
-    ///仿系统样式   △ Size(18.5 * 9) 最多支持五个菜单项
-    XMMenuStyleSystem   = 1,
-    ///仿微信样式   △ Size(12 * 5)
-    XMMenuStyleWechat   = 2,
-    ///仿手Q样式    △ Size(19 * 9)
-    XMMenuStyleQQ       = 3,
-    ///仿钉钉样式   △ Size(22 * 10)
-    XMMenuStyleDingTalk = 4,
-    ///自定义样式  △ Size(10 * 5)
-    XMMenuStyleCustom   = 5,
-} XMMenuStyle;
-
 @interface XMMenuPopover : NSObject
 
 @property(class, nonatomic, readonly) XMMenuPopover *sharedMenuPopover;

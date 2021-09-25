@@ -174,9 +174,6 @@ static XMMenuPopover *popover;
     //创建ItemView
     NSMutableArray *itemViews = [NSMutableArray array];
     for (XMMenuItem *item in self.menuItems) {
-        if ([self.menuItems indexOfObject:item] >= 5) {
-            break;
-        }
         XMMenuItemSystemView *view = [XMMenuItemSystemView viewWithItem:item];
         [itemViews addObject:view];
     }
@@ -187,9 +184,6 @@ static XMMenuPopover *popover;
     //创建ItemView
     NSMutableArray *itemViews = [NSMutableArray array];
     for (XMMenuItem *item in self.menuItems) {
-        if ([self.menuItems indexOfObject:item] >= 5) {
-            break;
-        }
         XMMenuItemBaseView *view = [XMMenuItemBaseView viewWithItem:item];
         [itemViews addObject:view];
     }
@@ -199,6 +193,13 @@ static XMMenuPopover *popover;
 #pragma mark Setter/Getter
 
 - (void)setMenuItems:(NSArray<XMMenuItem *> *)menuItems {
+    menuItems.lastObject.isLast = YES;
+    //兜底的默认配置
+    for (XMMenuItem *item in menuItems) {
+        if (item.config == nil) {
+            item.config = [XMMenuItemConfig configWithStyle:self.style];
+        }
+    }
     _menuItems = menuItems;
 }
 
@@ -222,107 +223,91 @@ static XMMenuPopover *popover;
         case XMMenuStyleWechat:
         case XMMenuStyleQQ: {
             double lineCount = ceil(_menuItems.count / 5.0);
-            return self.menuView.iHeight * lineCount + [self triangleHeight];
+            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + [self triangleHeight];
         }
         case XMMenuStyleDingTalk: {
             double lineCount = ceil(_menuItems.count / 6.0);
-            return self.menuView.iHeight * lineCount + [self triangleHeight];
+            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + [self triangleHeight];
         }
         case XMMenuStyleCustom:
             return _customView.bounds.size.height;
         default: //XMStyle 、 System
-            return self.menuView.iHeight + [self triangleHeight];
+            return [self.menuItems.firstObject heightWithStyle:_style] + [self triangleHeight];
     }
 }
 
 - (CGFloat)width {
     switch (_style) {
+        case XMMenuStyleDefault:
         case XMMenuStyleSystem:
-            if (_menuItems.count >= 5) {
-                return 5 * self.menuView.iWidth + self.menuView.iPadding * 2; //+ 30 左右滚动按钮, 暂不支持
+        {
+            CGFloat width = 2 * self.menuView.iPadding;
+            for (XMMenuItem *item in self.menuItems) {
+                width += [item calculationWidthWithStyle:_style];
             }
-            return _menuItems.count * self.menuView.iWidth + self.menuView.iPadding * 2;
+            if (width > XM_ScreenWidth - 30) {
+                width = XM_ScreenWidth - 30;
+            }
+            return  width;
+        }
         case XMMenuStyleDingTalk:
             if (_menuItems.count >= 6) {
-                return self.menuView.iPadding * 2 + self.menuView.iWidth * 6;
+                return self.menuView.iPadding * 2 + [self.menuItems.firstObject calculationWidthWithStyle:_style] * 6;
             }
-            return self.menuView.iPadding * 2 + _menuItems.count * self.menuView.iWidth;
+            return self.menuView.iPadding * 2 + _menuItems.count * [self.menuItems.firstObject calculationWidthWithStyle:_style];
         case XMMenuStyleCustom:
             return _customView.bounds.size.width;
-        default:
+        default:  //微信、QQ
             if (_menuItems.count >= 5) {
-                return self.menuView.iPadding * 2 +                  self.menuView.iWidth * 5;
+                return self.menuView.iPadding * 2 + [self.menuItems.firstObject calculationWidthWithStyle:_style] * 5;
             }
-            return self.menuView.iPadding * 2 + _menuItems.count * self.menuView.iWidth;
+            return self.menuView.iPadding * 2 + _menuItems.count * [self.menuItems.firstObject calculationWidthWithStyle:_style];
     }
 }
 
 /// 三角箭头宽度
 - (CGFloat)triangleWidth {
     switch (_style) {
-        case XMMenuStyleSystem:
-            return 18.5;
-        case XMMenuStyleWechat:
-            return 12;
-        case XMMenuStyleDingTalk:
-            return 22;
-        case XMMenuStyleQQ:
-            return 19;
-        case XMMenuStyleCustom:
-            return 10;
-        default:
-            return 10;
+        case XMMenuStyleSystem:     return 18.5;
+        case XMMenuStyleWechat:     return 12;
+        case XMMenuStyleDingTalk:   return 22;
+        case XMMenuStyleQQ:         return 19;
+        case XMMenuStyleCustom:     return 10;
+        default:                    return 10;
     }
 }
 
 /// 三角箭头高度
 - (CGFloat)triangleHeight {
     switch (_style) {
-        case XMMenuStyleSystem:
-            return 10;
-        case XMMenuStyleWechat:
-            return 5;
-        case XMMenuStyleDingTalk:
-            return 10;
-        case XMMenuStyleQQ:
-            return 9;
-        case XMMenuStyleCustom:
-            return 5;
-        default:
-            return 5;
+        case XMMenuStyleSystem:     return 10;
+        case XMMenuStyleWechat:     return 5;
+        case XMMenuStyleDingTalk:   return 10;
+        case XMMenuStyleQQ:         return 9;
+        case XMMenuStyleCustom:     return 5;
+        default:                    return 5;
     }
 }
 
 /// 气泡圆角
 - (CGFloat)cornerRadius {
     switch (_style) {
-        case XMMenuStyleWechat:
-            return 5;
-        case XMMenuStyleDingTalk:
-            return 15;
-        case XMMenuStyleQQ:
-            return 8;
-        default:
-            return 5;
+        case XMMenuStyleWechat:     return 5;
+        case XMMenuStyleDingTalk:   return 15;
+        case XMMenuStyleQQ:         return 8;
+        default:                    return _cornerRadius;
     }
     return _cornerRadius;
 }
 
 - (UIColor *)highLightColor {
-    if (_highLightColor != nil) {
-        return _highLightColor;
-    }
+    if (_highLightColor != nil) { return _highLightColor; }
     switch (_style) {
-        case XMMenuStyleWechat:
-            return UIColor.redColor;
-        case XMMenuStyleDingTalk:
-            return UIColor.yellowColor;
-        case XMMenuStyleQQ:
-            return UIColor.lightGrayColor;
-        case XMMenuStyleSystem:
-            return UIColor.darkGrayColor;
-        default:
-            return _color;
+        case XMMenuStyleWechat:     return UIColor.redColor;
+        case XMMenuStyleDingTalk:   return UIColor.yellowColor;
+        case XMMenuStyleQQ:         return UIColor.lightGrayColor;
+        case XMMenuStyleSystem:     return UIColor.darkGrayColor;
+        default:                    return _color;
     }
 }
 

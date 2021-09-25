@@ -18,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 //图片  - 默认值：nil
 @property(nonatomic, strong) UIImage  *image;
 
+//是否是最后一项 - 用来隐藏竖线
+@property (nonatomic, assign) BOOL isLast;
+
 //点击回调事件
 @property(nonatomic, copy)   void (^handler)(void);
 
@@ -81,6 +84,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
+
+
+//通过标题以及配置计算出的宽度
+- (CGFloat)calculationWidthWithStyle:(XMMenuStyle)style;
+//通过样式拿高度
+- (CGFloat)heightWithStyle:(XMMenuStyle)style;
 
 @end
 

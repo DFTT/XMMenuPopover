@@ -11,6 +11,7 @@
 @interface XMMenuView()
 
 @property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) UIScrollView *contentScrollView;
 
 @end
 
@@ -22,7 +23,12 @@
         self.backgroundColor = UIColor.clearColor;
         self.arrowDirection = XMMenuViewArrowDown;
         _containerView = [[UIView alloc] init];
-        [self addSubview:_containerView];
+        _contentScrollView = [[UIScrollView alloc] init];
+        _contentScrollView.showsVerticalScrollIndicator = NO;
+        _contentScrollView.showsHorizontalScrollIndicator = NO;
+        _contentScrollView.bounces = NO;
+        [self addSubview:_contentScrollView];
+        [_contentScrollView addSubview:_containerView];
     }
     return self;
 }
@@ -35,41 +41,36 @@
     }
     
     //布局新UI
-    _containerView.frame = CGRectMake(0, self.topMargin, self.bounds.size.width, self.popover.height - self.popover.triangleHeight);
-    _containerView.layer.cornerRadius = self.cornerRadius;
-    _containerView.layer.masksToBounds = YES;
+    _contentScrollView.frame = CGRectMake(0, self.topMargin, self.bounds.size.width, self.popover.height - self.popover.triangleHeight);
+    _contentScrollView.contentSize = CGSizeMake([self totalWidth], self.popover.height - self.popover.triangleHeight);
+    _contentScrollView.layer.cornerRadius = self.cornerRadius;
+    _contentScrollView.layer.masksToBounds = YES;
+    [_contentScrollView setContentOffset:CGPointMake(0, 0)];
+    _containerView.frame = CGRectMake(0, 0, [self totalWidth], self.popover.height - self.popover.triangleHeight);
     
     switch (self.popover.style) {
         case XMMenuStyleDefault:
         case XMMenuStyleSystem:
-            [self layoutXMStyle];
-            break;
+            [self layoutDefaultStyle]; break;
         case XMMenuStyleWechat:
-            [self layoutWechatStyle];
-            break;
+            [self layoutWechatStyle]; break;
         case XMMenuStyleQQ:
-            [self layoutQQStyle];
-            break;
+            [self layoutQQStyle]; break;
         case XMMenuStyleDingTalk:
-            [self layoutDingTalkStyle];
-            break;
-        default:
-            break;
+            [self layoutDingTalkStyle]; break;
+        default: break;
     }
 }
 
-- (void)layoutXMStyle {
+- (void)layoutDefaultStyle {
+    XMMenuItemBaseView *lastView = nil;
     for (NSInteger i = 0; i < _menuItemViews.count; i++) {
         XMMenuItemBaseView *view = _menuItemViews[i];
-        view.color = self.popover.color;
-        view.highLightColor = self.popover.highLightColor;
-        view.textColor = self.popover.textColor;
-        view.lineColor = self.popover.lineColor;
-        if (i == _menuItemViews.count - 1) {
-            view.lineColor = UIColor.clearColor;
-        }
         [self.containerView addSubview:view];
-        view.frame = CGRectMake(roundf(self.iPadding + [self iWidth] * i), 0, [self iWidth], [self iHeight]);
+        CGFloat itemWidth = [view.item calculationWidthWithStyle:self.popover.style];
+        CGFloat originX = lastView ? CGRectGetMaxX(lastView.frame):self.iPadding;
+        view.frame = CGRectMake(originX, 0, itemWidth, [view.item heightWithStyle:self.popover.style]);
+        lastView = view;
     }
 }
 
@@ -89,72 +90,30 @@
     return self.arrowDirection == 0 ? [self.popover triangleHeight] : 0;
 }
 
-/// 菜单项宽度
-- (CGFloat)iWidth {
+///总宽度  - 可滚动宽度
+- (CGFloat)totalWidth {
     switch (self.popover.style) {
-        case XMMenuStyleSystem:
-            return 63;
-        case XMMenuStyleWechat:
-            return 56;
-        case XMMenuStyleDingTalk:
-            return 52;
-        case XMMenuStyleQQ:
-            return 69;
         case XMMenuStyleDefault:
-            return 45;
-        default:
-            return 0;
-    }
-}
-
-/// 菜单项高度
-- (CGFloat)iHeight {
-    switch (self.popover.style) {
         case XMMenuStyleSystem:
-            return 36;
-        case XMMenuStyleWechat:
-            return 73;
-        case XMMenuStyleDingTalk:
-            return 66;
-        case XMMenuStyleQQ:
-            return 44;
-        case XMMenuStyleDefault:
-            return 37;
-        default:
-            return 0;
+        {
+            CGFloat width = 2 * self.iPadding;
+            for (XMMenuItemBaseView *view in self.menuItemViews) {
+                width += [view.item calculationWidthWithStyle:self.popover.style];
+            }
+            return  width;
+        }
+        default:return self.popover.width;
     }
 }
 
 /// 菜单项左右边Padding
 - (CGFloat)iPadding {
     switch (self.popover.style) {
-        case XMMenuStyleWechat:
-            return 13;
-        case XMMenuStyleDingTalk:
-            return 10;
-        case XMMenuStyleDefault:
-            return 5;
-        default:
-            return 0;
+        case XMMenuStyleWechat:     return 13;
+        case XMMenuStyleDingTalk:   return 10;
+        default:                    return 0;
     }
 }
-
-//- (CGFloat)widthWithPadding:(CGFloat)padding {
-//    CGFloat totalWidth = 0;
-//    for (XMMenuItem *item in _menuItems) {
-//        CGFloat width = [item.title boundingRectWithSize:CGSizeMake(XM_ScreenWidth - padding * 2 - 30, 30) options:0 attributes:@{
-//            NSFontAttributeName:[UIFont systemFontOfSize:14]
-//        } context:nil].size.width;
-//
-//        if (width > (XM_ScreenWidth - 30.0) / 2.0) {
-//            width = (XM_ScreenWidth - 30) / 2.0;
-//        }
-//        width += padding * 2;
-//        totalWidth += width;
-//    }
-//    return totalWidth;
-//}
-
 
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();

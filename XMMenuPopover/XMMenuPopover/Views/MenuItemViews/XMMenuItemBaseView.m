@@ -31,16 +31,17 @@
     return self;
 }
 
-- (void)config {
-    
-}
+- (void)config {}
 
 - (void)createView {
     _actionBtn = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:self.item.title forState:UIControlStateNormal];
-        [button setTitleColor:self.item.config.color forState:UIControlStateNormal];
         button.titleLabel.font = self.item.config.font;
+        [button setTitleColor:self.item.config.color forState:UIControlStateNormal];
+        [button xm_setBackgroundColor:self.item.config.backgroundColor forState:UIControlStateNormal];
+        [button xm_setBackgroundColor:self.item.config.highlightBackgroundColor forState:UIControlStateHighlighted];
+        [button xm_setBackgroundColor:self.item.config.highlightBackgroundColor forState:UIControlStateSelected];
         [button addTarget:self action:@selector(onClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         button;
@@ -49,6 +50,7 @@
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = self.item.config.lineColor;
         [self addSubview:view];
+        [view setHidden:self.item.isLast];
         view;
     });
 }
@@ -65,8 +67,8 @@
         }
     }
     
-    if ([self.superview.superview isKindOfClass:[XMMenuView class]]) {
-        [((XMMenuView *)self.superview.superview).popover hideMenu];
+    if ([self.superview.superview.superview isKindOfClass:[XMMenuView class]]) {
+        [((XMMenuView *)self.superview.superview.superview).popover hideMenu];
     }
 }
 
@@ -74,12 +76,6 @@
     [super layoutSubviews];
     _actionBtn.frame = self.bounds;
     _verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - 0.5, (CGRectGetHeight(self.bounds) - 12) / 2, 0.5, 12);
-    [_actionBtn setTitleColor:self.textColor forState:UIControlStateNormal];
-    [_actionBtn xm_setBackgroundColor:self.color forState:UIControlStateNormal];
-    [_actionBtn xm_setBackgroundColor:self.highLightColor forState:UIControlStateHighlighted];
-    [_actionBtn xm_setBackgroundColor:self.highLightColor forState:UIControlStateSelected];
-    
-    _verticalLineView.backgroundColor = self.lineColor;
 }
 
 @end

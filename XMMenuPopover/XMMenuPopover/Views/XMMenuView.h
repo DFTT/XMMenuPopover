@@ -28,11 +28,6 @@ typedef enum : NSUInteger {
 @property(nonatomic,assign) CGFloat triangleCenterX;
 @property(nonatomic,assign) XMMenuPopoverArrowDirection arrowDirection;
 
-
-/// 菜单项高度
-- (CGFloat)iHeight;
-/// 菜单项宽度
-- (CGFloat)iWidth;
 /// 菜单项左右边Padding
 - (CGFloat)iPadding;
 
