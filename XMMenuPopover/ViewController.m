@@ -21,14 +21,16 @@
 - (IBAction)showPopover:(UIButton *)sender {
     
     XMMenuItemConfig *config = [[XMMenuItemConfig alloc] init];
-    config.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
-    config.color = UIColor.redColor;
+    config.textFont = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+    config.textColor = UIColor.redColor;
+    config.textHighlightColor = UIColor.whiteColor;
     config.backgroundColor = UIColor.yellowColor;
     config.highlightBackgroundColor = UIColor.greenColor;
     config.lineColor = UIColor.purpleColor;
     
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
     menu.style = XMMenuStyleDefault;
+    menu.color = UIColor.yellowColor;
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"88");
     }];

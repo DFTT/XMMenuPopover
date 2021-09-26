@@ -41,12 +41,12 @@
     }
     
     //布局新UI
-    _contentScrollView.frame = CGRectMake(0, self.topMargin, self.bounds.size.width, self.popover.height - self.popover.triangleHeight);
-    _contentScrollView.contentSize = CGSizeMake([self totalWidth], self.popover.height - self.popover.triangleHeight);
+    _contentScrollView.frame = CGRectMake(0, self.topMargin, self.bounds.size.width, self.popover.height - self.triangleHeight);
+    _contentScrollView.contentSize = CGSizeMake([self totalWidth], self.popover.height - self.triangleHeight);
     _contentScrollView.layer.cornerRadius = self.cornerRadius;
     _contentScrollView.layer.masksToBounds = YES;
     [_contentScrollView setContentOffset:CGPointMake(0, 0)];
-    _containerView.frame = CGRectMake(0, 0, [self totalWidth], self.popover.height - self.popover.triangleHeight);
+    _containerView.frame = CGRectMake(0, 0, [self totalWidth], self.popover.height - self.triangleHeight);
     
     switch (self.popover.style) {
         case XMMenuStyleDefault:
@@ -87,7 +87,7 @@
 }
 
 - (CGFloat)topMargin {
-    return self.arrowDirection == 0 ? [self.popover triangleHeight] : 0;
+    return self.arrowDirection == 0 ? self.triangleHeight : 0;
 }
 
 ///总宽度  - 可滚动宽度
@@ -115,6 +115,30 @@
     }
 }
 
+/// 三角箭头宽度
+- (CGFloat)triangleWidth {
+    switch (self.popover.style) {
+        case XMMenuStyleSystem:     return 18.5;
+        case XMMenuStyleWechat:     return 12;
+        case XMMenuStyleDingTalk:   return 22;
+        case XMMenuStyleQQ:         return 19;
+        case XMMenuStyleCustom:     return 10;
+        default:                    return 10;
+    }
+}
+
+/// 三角箭头高度
+- (CGFloat)triangleHeight {
+    switch (self.popover.style) {
+        case XMMenuStyleSystem:     return 10;
+        case XMMenuStyleWechat:     return 5;
+        case XMMenuStyleDingTalk:   return 10;
+        case XMMenuStyleQQ:         return 9;
+        case XMMenuStyleCustom:     return 5;
+        default:                    return 5;
+    }
+}
+
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -129,7 +153,7 @@
 
     CGFloat radius = self.cornerRadius;
     CGFloat triangleW = self.triangleWidth;
-    CGFloat triangleH = self.triangleheight;
+    CGFloat triangleH = self.triangleHeight;
     CGFloat triangleCenterX = self.triangleCenterX;
     XMMenuPopoverArrowDirection dirction = self.arrowDirection;
     

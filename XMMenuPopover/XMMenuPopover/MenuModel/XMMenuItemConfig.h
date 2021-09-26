@@ -28,9 +28,11 @@ typedef enum : NSUInteger {
 @interface XMMenuItemConfig : NSObject
 
 //标题字体样式 - 默认值：`[UIFont systemFontOfSize:14]`
-@property(nonatomic, strong) UIFont   *font;
+@property(nonatomic, strong) UIFont   *textFont;
 //标题字体颜色 - 默认值：`UIColor.whiteColor;`
-@property(nonatomic, strong) UIColor  *color;
+@property(nonatomic, strong) UIColor  *textColor;
+//标题字体高亮颜色 - 默认值：`UIColor.whiteColor;`
+@property(nonatomic, strong) UIColor  *textHighlightColor;
 //背景色 - 默认值：`UIColor.clearColor;`
 @property(nonatomic, strong) UIColor  *backgroundColor;
 //高亮背景色 - 默认值：`UIColor.clearColor;`
@@ -53,18 +55,18 @@ typedef enum : NSUInteger {
                          color:(UIColor *)color;
 
 //自定义配置 - 2
-+ (instancetype)configWithFont:(UIFont *)font
-                         color:(UIColor *)color
-               backgroundColor:(UIColor *)backgroundColor
-      highlightBackgroundColor:(UIColor *)highlightBackgroundColor
-                     lineColor:(UIColor *)lineColor;
++ (instancetype)configWithTextFont:(UIFont *)textFont
+                         textColor:(UIColor *)textColor
+                   backgroundColor:(UIColor *)backgroundColor
+          highlightBackgroundColor:(UIColor *)highlightBackgroundColor
+                         lineColor:(UIColor *)lineColor;
 
 //自定义配置 - 3
-+ (instancetype)configWithFont:(UIFont *)font
-                         color:(UIColor *)color
-               backgroundImage:(UIImage *)backgroundImage
-      highlightBackgroundImage:(UIImage *)highlightBackgroundImage
-                     lineColor:(UIColor *)lineColor;
++ (instancetype)configWithTextFont:(UIFont *)textFont
+                         textColor:(UIColor *)textColor
+                   backgroundImage:(UIImage *)backgroundImage
+          highlightBackgroundImage:(UIImage *)highlightBackgroundImage
+                         lineColor:(UIColor *)lineColor;
  
 @end
 

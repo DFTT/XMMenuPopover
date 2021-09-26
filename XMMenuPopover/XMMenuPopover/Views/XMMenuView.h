@@ -24,7 +24,7 @@ typedef enum : NSUInteger {
 @property(nonatomic,strong) UIColor *color; //default is black(alpha = 0.9)
 @property(nonatomic,assign) CGFloat cornerRadius; //default is 5
 @property(nonatomic,assign) CGFloat triangleWidth;
-@property(nonatomic,assign) CGFloat triangleheight;
+@property(nonatomic,assign) CGFloat triangleHeight;
 @property(nonatomic,assign) CGFloat triangleCenterX;
 @property(nonatomic,assign) XMMenuPopoverArrowDirection arrowDirection;
 

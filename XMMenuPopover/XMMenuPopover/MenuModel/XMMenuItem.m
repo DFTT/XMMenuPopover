@@ -107,7 +107,7 @@
             if ([_widthMap.allKeys containsObject:self.title]) {
                 return [_widthMap objectForKey:self.title].floatValue;
             }
-            CGFloat width = [self.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.config.font} context:nil].size.width;
+            CGFloat width = [self.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.config.textFont} context:nil].size.width;
             width = MAX(width + 16, 63);
             [_widthMap setObject:@(width) forKey:self.title];
             return width;
@@ -119,7 +119,7 @@
             if ([_widthMap.allKeys containsObject:self.title]) {
                 return [_widthMap objectForKey:self.title].floatValue;
             }
-            CGFloat width = [self.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.config.font} context:nil].size.width;
+            CGFloat width = [self.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName: self.config.textFont} context:nil].size.width;
             width = MAX(width + 20, 45);
             [_widthMap setObject:@(width) forKey:self.title];
             return width;

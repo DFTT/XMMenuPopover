@@ -21,13 +21,11 @@
 
 @implementation XMMenuPopover
 
-static XMMenuPopover *popover;
+XMMenuPopover *popover;
 + (XMMenuPopover *)sharedMenuPopover {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        popover = [[XMMenuPopover alloc] init];
-        [popover config];
-    });
+    if (popover != nil) { return  popover; }
+    popover = [[XMMenuPopover alloc] init];
+    [popover config];
     return popover;
 }
 
@@ -64,8 +62,6 @@ static XMMenuPopover *popover;
     //配置属性
     self.menuView.color = self.color;
     self.menuView.cornerRadius = self.cornerRadius;
-    self.menuView.triangleWidth = [self triangleWidth];
-    self.menuView.triangleheight = [self triangleHeight];
     
     [self.menuView setNeedsDisplay];
     
@@ -137,10 +133,12 @@ static XMMenuPopover *popover;
             } completion:^(BOOL finished) {
                 [self.menuView removeFromSuperview];
                 [self.overlayView removeFromSuperview];
+                popover = nil;
             }];
         } else {
             [self.menuView removeFromSuperview];
             [self.overlayView removeFromSuperview];
+            popover = nil;
         }
     }
 }
@@ -150,7 +148,7 @@ static XMMenuPopover *popover;
     self.menuView.bounds = CGRectMake(0, 0, [self width], [self height]);
     switch (_style) {
         case XMMenuStyleSystem:
-            [self configSystemItems];
+            [self configItemViewWithClass:XMMenuItemSystemView.class];
             break;
         case XMMenuStyleWechat:
             break;
@@ -161,28 +159,18 @@ static XMMenuPopover *popover;
         case XMMenuStyleCustom:
             break;
         default:
-            [self configXMItems];
+            [self configItemViewWithClass:XMMenuItemBaseView.class];
             break;
     }
     
     
 }
 
-- (void)configSystemItems {
+- (void)configItemViewWithClass:(Class)class {
     //创建ItemView
     NSMutableArray *itemViews = [NSMutableArray array];
     for (XMMenuItem *item in self.menuItems) {
-        XMMenuItemSystemView *view = [XMMenuItemSystemView viewWithItem:item];
-        [itemViews addObject:view];
-    }
-    self.menuView.menuItemViews = itemViews.mutableCopy;
-}
-
-- (void)configXMItems {
-    //创建ItemView
-    NSMutableArray *itemViews = [NSMutableArray array];
-    for (XMMenuItem *item in self.menuItems) {
-        XMMenuItemBaseView *view = [XMMenuItemBaseView viewWithItem:item];
+        XMMenuItemBaseView *view = [class viewWithItem:item];
         [itemViews addObject:view];
     }
     self.menuView.menuItemViews = itemViews.mutableCopy;
@@ -216,24 +204,6 @@ static XMMenuPopover *popover;
     return _overlayView;
 }
 
-- (CGFloat)height {
-    switch (_style) {
-        case XMMenuStyleWechat:
-        case XMMenuStyleQQ: {
-            double lineCount = ceil(_menuItems.count / 5.0);
-            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + [self triangleHeight];
-        }
-        case XMMenuStyleDingTalk: {
-            double lineCount = ceil(_menuItems.count / 6.0);
-            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + [self triangleHeight];
-        }
-        case XMMenuStyleCustom:
-            return _customView.bounds.size.height;
-        default: //XMStyle 、 System
-            return [self.menuItems.firstObject heightWithStyle:_style] + [self triangleHeight];
-    }
-}
-
 - (CGFloat)width {
     switch (_style) {
         case XMMenuStyleDefault:
@@ -263,29 +233,24 @@ static XMMenuPopover *popover;
     }
 }
 
-/// 三角箭头宽度
-- (CGFloat)triangleWidth {
+- (CGFloat)height {
     switch (_style) {
-        case XMMenuStyleSystem:     return 18.5;
-        case XMMenuStyleWechat:     return 12;
-        case XMMenuStyleDingTalk:   return 22;
-        case XMMenuStyleQQ:         return 19;
-        case XMMenuStyleCustom:     return 10;
-        default:                    return 10;
+        case XMMenuStyleWechat:
+        case XMMenuStyleQQ: {
+            double lineCount = ceil(_menuItems.count / 5.0);
+            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + self.menuView.triangleHeight;
+        }
+        case XMMenuStyleDingTalk: {
+            double lineCount = ceil(_menuItems.count / 6.0);
+            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + self.menuView.triangleHeight;
+        }
+        case XMMenuStyleCustom:
+            return _customView.bounds.size.height;
+        default: //XMStyle 、 System
+            return [self.menuItems.firstObject heightWithStyle:_style] + self.menuView.triangleHeight;
     }
 }
 
-/// 三角箭头高度
-- (CGFloat)triangleHeight {
-    switch (_style) {
-        case XMMenuStyleSystem:     return 10;
-        case XMMenuStyleWechat:     return 5;
-        case XMMenuStyleDingTalk:   return 10;
-        case XMMenuStyleQQ:         return 9;
-        case XMMenuStyleCustom:     return 5;
-        default:                    return 5;
-    }
-}
 
 /// 气泡圆角
 - (CGFloat)cornerRadius {

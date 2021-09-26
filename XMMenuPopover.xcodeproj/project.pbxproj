@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AEA9060626FB2CEA00B0BC8D /* XMMenuPopover+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */; };
 		AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */; };
 		AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */; };
 		AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */; };
@@ -26,8 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AEA9060426FB2CEA00B0BC8D /* XMMenuPopover+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XMMenuPopover+Layout.h"; sourceTree = "<group>"; };
-		AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "XMMenuPopover+Layout.m"; sourceTree = "<group>"; };
 		AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemConfig.h; sourceTree = "<group>"; };
 		AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemConfig.m; sourceTree = "<group>"; };
 		AEE6F43D2636C05100AE4D35 /* XMMenuItemSystemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemSystemView.h; sourceTree = "<group>"; };
@@ -110,8 +107,6 @@
 			children = (
 				AEF1834E2632B20800F254C4 /* XMMenuPopover.h */,
 				AEF1834F2632B20800F254C4 /* XMMenuPopover.m */,
-				AEA9060426FB2CEA00B0BC8D /* XMMenuPopover+Layout.h */,
-				AEA9060526FB2CEA00B0BC8D /* XMMenuPopover+Layout.m */,
 				AEF1838F2636971200F254C4 /* Views */,
 				AEF183912636973400F254C4 /* MenuModel */,
 				AEF1839526369D4B00F254C4 /* Categorys */,
@@ -244,7 +239,6 @@
 				AEF183392632B05100F254C4 /* SceneDelegate.m in Sources */,
 				AEF183842635463100F254C4 /* XMMenuView.m in Sources */,
 				AEF1838026353B3400F254C4 /* XMMenuItemBaseView.m in Sources */,
-				AEA9060626FB2CEA00B0BC8D /* XMMenuPopover+Layout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

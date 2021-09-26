@@ -37,8 +37,10 @@
     _actionBtn = ({
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         [button setTitle:self.item.title forState:UIControlStateNormal];
-        button.titleLabel.font = self.item.config.font;
-        [button setTitleColor:self.item.config.color forState:UIControlStateNormal];
+        button.titleLabel.font = self.item.config.textFont;
+        [button setTitleColor:self.item.config.textColor forState:UIControlStateNormal];
+        [button setTitleColor:self.item.config.textHighlightColor forState:UIControlStateHighlighted];
+        [button setTitleColor:self.item.config.textHighlightColor forState:UIControlStateSelected];
         [button xm_setBackgroundColor:self.item.config.backgroundColor forState:UIControlStateNormal];
         [button xm_setBackgroundColor:self.item.config.highlightBackgroundColor forState:UIControlStateHighlighted];
         [button xm_setBackgroundColor:self.item.config.highlightBackgroundColor forState:UIControlStateSelected];
