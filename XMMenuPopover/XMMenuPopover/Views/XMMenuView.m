@@ -7,7 +7,7 @@
 
 #import "XMMenuView.h"
 #import "XMMenuItemSystemView.h"
-
+#import "XMMenuImageTextItemView.h"
 @interface XMMenuView()
 
 @property (nonatomic, strong) UIView *containerView;
@@ -52,38 +52,36 @@
         case XMMenuStyleDefault:
         case XMMenuStyleSystem:
             [self layoutDefaultStyle]; break;
-        case XMMenuStyleWechat:
-            [self layoutWechatStyle]; break;
-        case XMMenuStyleQQ:
-            [self layoutQQStyle]; break;
-        case XMMenuStyleDingTalk:
-            [self layoutDingTalkStyle]; break;
+        case XMMenuStyleImageText:
+            [self layoutImageTextStyle]; break;
         default: break;
     }
 }
 
+/// 单行可滚动
 - (void)layoutDefaultStyle {
     XMMenuItemBaseView *lastView = nil;
     for (NSInteger i = 0; i < _menuItemViews.count; i++) {
         XMMenuItemBaseView *view = _menuItemViews[i];
         [self.containerView addSubview:view];
         CGFloat itemWidth = [view.item calculationWidthWithStyle:self.popover.style];
-        CGFloat originX = lastView ? CGRectGetMaxX(lastView.frame):self.iPadding;
+        CGFloat originX = lastView ? CGRectGetMaxX(lastView.frame) : 0;
         view.frame = CGRectMake(originX, 0, itemWidth, [view.item heightWithStyle:self.popover.style]);
         lastView = view;
     }
 }
 
-- (void)layoutWechatStyle {
-    
-}
-
-- (void)layoutQQStyle {
-    
-}
-
-- (void)layoutDingTalkStyle {
-    
+/// 超过5个换行展示
+- (void)layoutImageTextStyle {
+    for (NSInteger i = 0; i < _menuItemViews.count; i++) {
+        XMMenuItemBaseView *view = _menuItemViews[i];
+        [self.containerView addSubview:view];
+        CGFloat itemWidth = [view.item calculationWidthWithStyle:self.popover.style];
+        CGFloat itemHeight = [view.item heightWithStyle:self.popover.style];
+        CGFloat originX = itemWidth * (i % 5);
+        CGFloat originY = itemWidth * floor(i / 5.0);
+        view.frame = CGRectMake(originX, originY, itemWidth, itemHeight);
+    }
 }
 
 - (CGFloat)topMargin {
@@ -96,7 +94,7 @@
         case XMMenuStyleDefault:
         case XMMenuStyleSystem:
         {
-            CGFloat width = 2 * self.iPadding;
+            CGFloat width = 0;
             for (XMMenuItemBaseView *view in self.menuItemViews) {
                 width += [view.item calculationWidthWithStyle:self.popover.style];
             }
@@ -106,36 +104,19 @@
     }
 }
 
-/// 菜单项左右边Padding
-- (CGFloat)iPadding {
-    switch (self.popover.style) {
-        case XMMenuStyleWechat:     return 13;
-        case XMMenuStyleDingTalk:   return 10;
-        default:                    return 0;
-    }
-}
-
 /// 三角箭头宽度
 - (CGFloat)triangleWidth {
     switch (self.popover.style) {
-        case XMMenuStyleSystem:     return 18.5;
-        case XMMenuStyleWechat:     return 12;
-        case XMMenuStyleDingTalk:   return 22;
-        case XMMenuStyleQQ:         return 19;
-        case XMMenuStyleCustom:     return 10;
-        default:                    return 10;
+        case XMMenuStyleImageText: return 10;
+        default:                   return 10;
     }
 }
 
 /// 三角箭头高度
 - (CGFloat)triangleHeight {
     switch (self.popover.style) {
-        case XMMenuStyleSystem:     return 10;
-        case XMMenuStyleWechat:     return 5;
-        case XMMenuStyleDingTalk:   return 10;
-        case XMMenuStyleQQ:         return 9;
-        case XMMenuStyleCustom:     return 5;
-        default:                    return 5;
+        case XMMenuStyleImageText: return 5;
+        default:                   return 5;
     }
 }
 

@@ -112,9 +112,7 @@
             [_widthMap setObject:@(width) forKey:self.title];
             return width;
         }
-        case XMMenuStyleWechat:     return 56;
-        case XMMenuStyleDingTalk:   return 52;
-        case XMMenuStyleQQ:         return 69;
+        case XMMenuStyleImageText:    return 50;
         default:
             if ([_widthMap.allKeys containsObject:self.title]) {
                 return [_widthMap objectForKey:self.title].floatValue;
@@ -129,9 +127,7 @@
 - (CGFloat)heightWithStyle:(XMMenuStyle)style {
     switch (style) {
         case XMMenuStyleSystem:     return 36;
-        case XMMenuStyleWechat:     return 73;
-        case XMMenuStyleDingTalk:   return 66;
-        case XMMenuStyleQQ:         return 44;
+        case XMMenuStyleImageText:  return 50;
         default:                    return 37;
     }
 }

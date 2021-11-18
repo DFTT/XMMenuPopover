@@ -18,7 +18,7 @@
 @implementation XMMenuItemBaseView
 
 + (instancetype)viewWithItem:(XMMenuItem *)item {
-    return [[XMMenuItemBaseView alloc] initWithItem:item];
+    return [[self alloc] initWithItem:item];
 }
 
 - (instancetype)initWithItem:(XMMenuItem *)item {
@@ -48,6 +48,18 @@
         [self addSubview:button];
         button;
     });
+    
+    _titleLbl = ({
+        UILabel *label = [[UILabel alloc] init];
+        label.text = self.item.title;
+        label.font = self.item.config.textFont;
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [self addSubview:label];
+        [label setHidden:YES];
+        label;
+    });
+    
     _verticalLineView = ({
         UIView *view = [[UIView alloc] init];
         view.backgroundColor = self.item.config.lineColor;

@@ -27,20 +27,18 @@
     XMMenuItemConfig *config = [[XMMenuItemConfig alloc] init];
     switch (style) {
         case XMMenuStyleDefault:
-            config.textFont = [UIFont systemFontOfSize:14];
-            config.textColor = UIColor.whiteColor;
-            config.textHighlightColor = UIColor.whiteColor;
             config.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.9];
             config.highlightBackgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.9];
-            config.lineColor = UIColor.whiteColor;
             break;
         case XMMenuStyleSystem:
-            config.textFont = [UIFont systemFontOfSize:14];
-            config.textColor = UIColor.whiteColor;
-            config.textHighlightColor = UIColor.whiteColor;
             config.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.9];
             config.highlightBackgroundColor = UIColor.darkGrayColor;
-            config.lineColor = UIColor.whiteColor;
+            break;
+        case XMMenuStyleImageText:
+            config.textFont = [UIFont systemFontOfSize:12];
+            config.backgroundColor = UIColor.clearColor;
+            config.highlightBackgroundColor = UIColor.darkGrayColor;
+            config.lineColor = UIColor.clearColor;
             break;
         default:
             break;

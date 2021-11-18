@@ -9,10 +9,6 @@
 
 @implementation XMMenuItemSystemView
 
-+ (instancetype)viewWithItem:(XMMenuItem *)item {
-    return [[XMMenuItemSystemView alloc] initWithItem:item];
-}
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - 0.5, 0, 0.5, CGRectGetHeight(self.bounds));

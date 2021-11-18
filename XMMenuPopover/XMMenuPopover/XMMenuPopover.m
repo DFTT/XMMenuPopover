@@ -9,6 +9,7 @@
 #import "XMMenuView.h"
 #import "XMMenuPopoverDefine.h"
 #import "XMMenuItemSystemView.h"
+#import "XMMenuImageTextItemView.h"
 #import "XMMenuPopoverOverlayView.h"
 
 @interface XMMenuPopover()<UIGestureRecognizerDelegate>
@@ -35,7 +36,17 @@ XMMenuPopover *popover;
     self.cornerRadius = 5;
     self.padding = 15;
     self.style = XMMenuStyleDefault;
-    self.avoidNavigationBar = YES;
+    
+    self.avoidTopMargin = 20;
+    if (self.avoidTopMargin > 0) {
+        if (@available(iOS 11.0, *)) {
+            CGFloat safeTop = [UIApplication sharedApplication] .windows.firstObject.safeAreaInsets.top;
+            if (safeTop > 0) {
+                self.avoidTopMargin = safeTop;
+            }
+        }
+    }
+    self.distanceFromTargetView = 2;
 }
 
 - (void)showMenuFromView:(UIView *)targetView
@@ -85,28 +96,16 @@ XMMenuPopover *popover;
         self.menuView.triangleCenterX = CGRectGetMinX(targetRectToWindow) - originX + CGRectGetMidX(targetRect);
     }
 
-    CGFloat originY = CGRectGetMinY(targetRectToWindow) - [self height] - 1;
+    CGFloat originY = CGRectGetMinY(targetRectToWindow) - [self height] - self.distanceFromTargetView;
     
     //默认在顶部展示
     self.menuView.arrowDirection = XMMenuViewArrowDown;
     CGRect contentFrame = CGRectMake(originX, originY, [self width], [self height]);
     
-    //顶部稍微留点距离
-    CGFloat topMargin = 20;
-    //如果需要避开导航条，则需要调整位置
-    if (self.avoidNavigationBar) {
-        topMargin = 64.0;
-        if (@available(iOS 11.0, *)) {
-            CGFloat safeBottom = [UIApplication sharedApplication] .windows.firstObject.safeAreaInsets.bottom;
-            if (safeBottom > 0) {
-                topMargin = 88.0;
-            }
-        }
-    }
-    
-    if (CGRectGetMinY(targetRectToWindow) - [self height] < topMargin) {
+    //如果需要避开导航条或者自定义的内容，则需要调整位置
+    if (CGRectGetMinY(targetRectToWindow) - [self height] < self.avoidTopMargin) {
         //在底部展示
-        contentFrame.origin.y = CGRectGetMaxY(targetRectToWindow) + 1;
+        contentFrame.origin.y = CGRectGetMaxY(targetRectToWindow) + self.distanceFromTargetView;
         self.menuView.arrowDirection = XMMenuViewArrowUp;
     }
     
@@ -150,11 +149,8 @@ XMMenuPopover *popover;
         case XMMenuStyleSystem:
             [self configItemViewWithClass:XMMenuItemSystemView.class];
             break;
-        case XMMenuStyleWechat:
-            break;
-        case XMMenuStyleDingTalk:
-            break;
-        case XMMenuStyleQQ:
+        case XMMenuStyleImageText:
+            [self configItemViewWithClass:XMMenuImageTextItemView.class];
             break;
         case XMMenuStyleCustom:
             break;
@@ -162,8 +158,6 @@ XMMenuPopover *popover;
             [self configItemViewWithClass:XMMenuItemBaseView.class];
             break;
     }
-    
-    
 }
 
 - (void)configItemViewWithClass:(Class)class {
@@ -206,10 +200,16 @@ XMMenuPopover *popover;
 
 - (CGFloat)width {
     switch (_style) {
-        case XMMenuStyleDefault:
-        case XMMenuStyleSystem:
+        case XMMenuStyleImageText:
+            if (_menuItems.count >= 5) {
+                return [self.menuItems.firstObject calculationWidthWithStyle:_style] * 5;
+            }
+            return _menuItems.count * [self.menuItems.firstObject calculationWidthWithStyle:_style];
+        case XMMenuStyleCustom:
+            return _customView.bounds.size.width;
+        default:  //纯文本
         {
-            CGFloat width = 2 * self.menuView.iPadding;
+            CGFloat width = 0;
             for (XMMenuItem *item in self.menuItems) {
                 width += [item calculationWidthWithStyle:_style];
             }
@@ -218,54 +218,29 @@ XMMenuPopover *popover;
             }
             return  width;
         }
-        case XMMenuStyleDingTalk:
-            if (_menuItems.count >= 6) {
-                return self.menuView.iPadding * 2 + [self.menuItems.firstObject calculationWidthWithStyle:_style] * 6;
-            }
-            return self.menuView.iPadding * 2 + _menuItems.count * [self.menuItems.firstObject calculationWidthWithStyle:_style];
-        case XMMenuStyleCustom:
-            return _customView.bounds.size.width;
-        default:  //微信、QQ
-            if (_menuItems.count >= 5) {
-                return self.menuView.iPadding * 2 + [self.menuItems.firstObject calculationWidthWithStyle:_style] * 5;
-            }
-            return self.menuView.iPadding * 2 + _menuItems.count * [self.menuItems.firstObject calculationWidthWithStyle:_style];
     }
 }
 
 - (CGFloat)height {
     switch (_style) {
-        case XMMenuStyleWechat:
-        case XMMenuStyleQQ: {
+        case XMMenuStyleImageText: {
             double lineCount = ceil(_menuItems.count / 5.0);
-            return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + self.menuView.triangleHeight;
-        }
-        case XMMenuStyleDingTalk: {
-            double lineCount = ceil(_menuItems.count / 6.0);
             return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + self.menuView.triangleHeight;
         }
         case XMMenuStyleCustom:
             return _customView.bounds.size.height;
-        default: //XMStyle 、 System
+        default: //纯文本
             return [self.menuItems.firstObject heightWithStyle:_style] + self.menuView.triangleHeight;
     }
-}
-
-
-/// 气泡圆角
-- (CGFloat)cornerRadius {
-    switch (_style) {
-        case XMMenuStyleWechat:     return 5;
-        case XMMenuStyleDingTalk:   return 15;
-        case XMMenuStyleQQ:         return 8;
-        default:                    return _cornerRadius;
-    }
-    return _cornerRadius;
 }
 
 /// 整个菜单在屏幕上的坐标
 - (CGRect)menuFrame {
     return self.menuView.frame;
+}
+
+- (BOOL)isMenuVisible {
+    return self.menuView.superview != nil;
 }
 
 @end

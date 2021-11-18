@@ -18,8 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, readonly) XMMenuItem *item;
 
 @property (nonatomic, strong) UIButton    *actionBtn;
+@property (nonatomic, strong) UILabel     *titleLbl;
 @property (nonatomic, strong) UIView      *verticalLineView;
 @property (nonatomic, strong) UIView      *horizonalLineView;
+
+- (void)createView;
 
 @end
 
