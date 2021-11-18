@@ -31,7 +31,7 @@
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
     menu.style = XMMenuStyleDefault;
     menu.color = UIColor.yellowColor;
-    menu.avoidTopMargin += 44;
+    menu.avoidTopMargin += 44; //避开导航条
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"88");
     }];
@@ -75,7 +75,7 @@
 - (IBAction)showPopover3:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
     menu.style = XMMenuStyleSystem;
-    menu.avoidTopMargin += 44;
+    menu.avoidTopMargin += 44; //避开导航条
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"1");
     }];
@@ -175,7 +175,19 @@
         NSLog(@"3");
     }];
     
-    menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10];
+    XMMenuItem *item12 = [[XMMenuItem alloc] initWithTitle:@"翻译" actionHandler:^{
+        
+    }];
+    
+    XMMenuItem *item13 = [[XMMenuItem alloc] initWithImage:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
+        
+    }];
+    
+    XMMenuItem *item14 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
+        
+    }];
+    
+    menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10]; //, item11, item12, item13, item14
     CGRect rect = sender.frame;
     rect.origin.y += rect.size.height + 3;
     rect.size.width = 150;
@@ -183,7 +195,7 @@
 }
 
 - (IBAction)showPopover8:(UIButton *)sender {
-    [self showPopover3:sender];
+    [self showPopover7:sender];
 }
 
 @end
