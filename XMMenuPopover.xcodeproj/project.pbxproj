@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		440F28272745438B009E145F /* XMMenuImageTextItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 440F28262745438B009E145F /* XMMenuImageTextItemView.m */; };
+		442EABEB275A15E7000B0345 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442EABEA275A15E7000B0345 /* TableViewController.m */; };
 		AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */; };
 		AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */; };
 		AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */; };
@@ -28,6 +29,8 @@
 /* Begin PBXFileReference section */
 		440F28252745438B009E145F /* XMMenuImageTextItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuImageTextItemView.h; sourceTree = "<group>"; };
 		440F28262745438B009E145F /* XMMenuImageTextItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuImageTextItemView.m; sourceTree = "<group>"; };
+		442EABE9275A15E7000B0345 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		442EABEA275A15E7000B0345 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemConfig.h; sourceTree = "<group>"; };
 		AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemConfig.m; sourceTree = "<group>"; };
 		AEE6F43D2636C05100AE4D35 /* XMMenuItemSystemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemSystemView.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 				AEF183352632B05100F254C4 /* AppDelegate.m */,
 				AEF183372632B05100F254C4 /* SceneDelegate.h */,
 				AEF183382632B05100F254C4 /* SceneDelegate.m */,
+				442EABE9275A15E7000B0345 /* TableViewController.h */,
+				442EABEA275A15E7000B0345 /* TableViewController.m */,
 				AEF1833A2632B05100F254C4 /* ViewController.h */,
 				AEF1833B2632B05100F254C4 /* ViewController.m */,
 				AEF18377263538AA00F254C4 /* XMMenuPopover */,
@@ -237,6 +242,7 @@
 				AEF183362632B05100F254C4 /* AppDelegate.m in Sources */,
 				AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */,
 				AEF1839926369D7600F254C4 /* UIButton+XMMenuPopover.m in Sources */,
+				442EABEB275A15E7000B0345 /* TableViewController.m in Sources */,
 				440F28272745438B009E145F /* XMMenuImageTextItemView.m in Sources */,
 				AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */,
 				AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */,

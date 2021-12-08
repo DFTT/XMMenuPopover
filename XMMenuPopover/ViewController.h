@@ -6,9 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMMenuPopover.h"
 
 @interface ViewController : UIViewController
 
+@property (nonatomic, assign) XMMenuStyle menuStyle;
 
 @end
 

@@ -6,12 +6,16 @@
 //
 
 #import "ViewController.h"
-#import "XMMenuPopover.h"
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    _menuStyle = XMMenuStyleDefault;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,7 +23,6 @@
 }
 
 - (IBAction)showPopover:(UIButton *)sender {
-    
     XMMenuItemConfig *config = [[XMMenuItemConfig alloc] init];
     config.textFont = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
     config.textColor = UIColor.redColor;
@@ -29,7 +32,7 @@
     config.lineColor = UIColor.purpleColor;
     
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleDefault;
+    menu.style = self.menuStyle;
     menu.color = UIColor.yellowColor;
     menu.avoidTopMargin += 44; //避开导航条
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
@@ -42,11 +45,19 @@
     XMMenuItem *item3 = [[XMMenuItem alloc] initWithTitle:@"发送给好友" target:self action:@selector(clickAction)];
     item3.config = config;
     menu.menuItems = @[item1,item2,item3];
-    
-    CGRect rect = sender.bounds;
-    rect.origin.y += rect.size.height + 3;
-    rect.size.width = 80;
-    
+    if (self.menuStyle == XMMenuStyleCustom) {
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        customView.backgroundColor = UIColor.magentaColor;
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        label.text = @"我是自定义View";
+        label.font = [UIFont systemFontOfSize:24];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [customView addSubview:label];
+        menu.customView = customView;
+        
+        menu.color = UIColor.magentaColor;
+    }
     [menu showMenuFromView:sender rect:sender.bounds animated:YES];
 }
 
@@ -56,7 +67,7 @@
 
 - (IBAction)showPopover2:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleDefault;
+    menu.style = self.menuStyle;
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"5");
     }];
@@ -65,16 +76,22 @@
         NSLog(@"6");
     }];
     menu.menuItems = @[item1, item2];
-    CGRect rect = sender.frame;
-    rect.origin.y += rect.size.height + 3;
-    rect.size.width = 180;
-    
+    if (self.menuStyle == XMMenuStyleCustom) {
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        label.text = @"我是自定义View";
+        label.font = [UIFont systemFontOfSize:24];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [customView addSubview:label];
+        menu.customView = customView;
+    }
     [menu showMenuFromView:sender rect:sender.bounds];
 }
 
 - (IBAction)showPopover3:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleSystem;
+    menu.style = self.menuStyle;
     menu.avoidTopMargin += 44; //避开导航条
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" actionHandler:^{
         NSLog(@"1");
@@ -109,9 +126,17 @@
     }];
     
     menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8];
-    CGRect rect = sender.frame;
-    rect.origin.y += rect.size.height + 3;
-    rect.size.width = 150;
+    
+    if (self.menuStyle == XMMenuStyleCustom) {
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        label.text = @"我是自定义View";
+        label.font = [UIFont systemFontOfSize:24];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [customView addSubview:label];
+        menu.customView = customView;
+    }
     [menu showMenuFromView:sender rect:sender.bounds];
 }
 
@@ -129,7 +154,61 @@
 
 - (IBAction)showPopover7:(UIButton *)sender {
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
-    menu.style = XMMenuStyleImageText;
+    menu.style = self.menuStyle;
+    menu.avoidTopMargin += 44;
+    XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
+        
+    }];
+    XMMenuItem *item2 = [[XMMenuItem alloc] initWithTitle:@"删除" image:[UIImage imageNamed:@"img_menu_item_delete"] actionHandler:^{
+        
+    }];
+    XMMenuItem *item3 = [[XMMenuItem alloc] initWithTitle:@"撤回" image:[UIImage imageNamed:@"img_menu_item_revoke"] actionHandler:^{
+        
+    }];
+    XMMenuItem *item4 = [[XMMenuItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"img_menu_item_zmoji_add"] actionHandler:^{
+            
+    }];
+    XMMenuItem *item5 = [[XMMenuItem alloc] initWithTitle:@"发送" actionHandler:^{
+        
+    }];
+    XMMenuItem *item6 = [[XMMenuItem alloc] initWithTitle:@"分享" actionHandler:^{
+        
+    }];
+    XMMenuItem *item7 = [[XMMenuItem alloc] initWithTitle:@"查一查" actionHandler:^{
+        
+    }];
+    XMMenuItem *item8 = [[XMMenuItem alloc] initWithTitle:@"翻译" actionHandler:^{
+        
+    }];
+    XMMenuItem *item9 = [[XMMenuItem alloc] initWithImage:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
+        
+    }];
+    XMMenuItem *item10 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
+        
+    }];
+    
+    menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10];
+    if (self.menuStyle == XMMenuStyleCustom) {
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        label.text = @"我是自定义View";
+        label.font = [UIFont systemFontOfSize:24];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [customView addSubview:label];
+        menu.customView = customView;
+    }
+    [menu showMenuFromView:sender rect:sender.bounds];
+}
+
+- (IBAction)showPopover8:(UIButton *)sender {
+    [self showPopover7:sender];
+}
+
+
+- (IBAction)showPopover9:(UIButton *)sender {
+    XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
+    menu.style = self.menuStyle;
     menu.avoidTopMargin += 44;
     XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{
         
@@ -145,7 +224,7 @@
     
     XMMenuItem *item4 = [[XMMenuItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"img_menu_item_zmoji_add"] actionHandler:^{
             
-        }];
+    }];
     
     XMMenuItem *item5 = [[XMMenuItem alloc] initWithTitle:@"发送" actionHandler:^{
         
@@ -187,15 +266,26 @@
         
     }];
     
-    menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10]; //, item11, item12, item13, item14
-    CGRect rect = sender.frame;
-    rect.origin.y += rect.size.height + 3;
-    rect.size.width = 150;
+    menu.menuItems = @[item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13, item14];
+    if (self.menuStyle == XMMenuStyleCustom) {
+        UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+        label.text = @"我是自定义View";
+        label.font = [UIFont systemFontOfSize:24]; label.textAlignment = NSTextAlignmentCenter;
+        label.textColor = UIColor.whiteColor;
+        [customView addSubview:label];
+        menu.customView = customView;
+    }
     [menu showMenuFromView:sender rect:sender.bounds];
 }
 
-- (IBAction)showPopover8:(UIButton *)sender {
-    [self showPopover7:sender];
+- (IBAction)showPopover10:(UIButton *)sender {
+    [self showPopover3:sender];
 }
+
+- (IBAction)showPopover11:(UIButton *)sender {
+    [self showPopover2:sender];
+}
+
 
 @end

@@ -153,6 +153,7 @@ XMMenuPopover *popover;
             [self configItemViewWithClass:XMMenuImageTextItemView.class];
             break;
         case XMMenuStyleCustom:
+            [self configCustomView];
             break;
         default:
             [self configItemViewWithClass:XMMenuItemBaseView.class];
@@ -168,6 +169,17 @@ XMMenuPopover *popover;
         [itemViews addObject:view];
     }
     self.menuView.menuItemViews = itemViews.mutableCopy;
+}
+
+- (void)configCustomView {
+    if (self.menuView.arrowDirection == XMMenuViewArrowUp) {
+        CGRect frame = self.customView.frame;
+        frame.origin.y =  self.menuView.triangleHeight;
+        self.customView.frame = frame;
+    }
+    self.customView.layer.cornerRadius = self.cornerRadius;
+    self.customView.layer.masksToBounds = true;
+    [self.menuView addSubview:self.customView];
 }
 
 #pragma mark Setter/Getter
@@ -228,7 +240,7 @@ XMMenuPopover *popover;
             return [self.menuItems.firstObject heightWithStyle:_style] * lineCount + self.menuView.triangleHeight;
         }
         case XMMenuStyleCustom:
-            return _customView.bounds.size.height;
+            return _customView.bounds.size.height + self.menuView.triangleHeight;
         default: //纯文本
             return [self.menuItems.firstObject heightWithStyle:_style] + self.menuView.triangleHeight;
     }
