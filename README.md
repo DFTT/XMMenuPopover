@@ -3,11 +3,11 @@
 
 ### Introduction
 
-一个仿系统选择菜单项(`UIMenuController`)样式的自定义`MenuPopover`，实现了纯文本、图文、自定义View等展示样式，你也可以很方便的扩展实现自己的样式【例如微信、钉钉、QQ等聊天界面长按的样式】
+一个仿系统(`UIMenuController`)的自定义选择菜单项，实现了纯文本、图文、自定义View等展示样式，你也可以很方便的扩展实现自己的样式【例如微信、钉钉、QQ等聊天界面长按的样式】
 
 
 ### Installation
-#### 一、Cocoapods
+<!-- #### 一、Cocoapods
 	
 *  在Podfile文件中添加
 	
@@ -19,9 +19,9 @@
 * 命令行执行
 
 	*  `pod repo update master`
-	*  `pod install`
+	*  `pod install` -->
 
-#### 二、复制`XMMenuPopover `文件夹至您的项目中即可
+#### 复制`XMMenuPopover `文件夹至您的项目中即可
 
 ### Example
 
