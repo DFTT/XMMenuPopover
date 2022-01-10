@@ -7,38 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		440F28272745438B009E145F /* XMMenuImageTextItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 440F28262745438B009E145F /* XMMenuImageTextItemView.m */; };
+		4400F3B6278C2C1F00041BF7 /* XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3A0278C2C1F00041BF7 /* XMMenuPopover.m */; };
+		4400F3B7278C2C1F00041BF7 /* XMMenuItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3A2278C2C1F00041BF7 /* XMMenuItemConfig.m */; };
+		4400F3B8278C2C1F00041BF7 /* XMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3A5278C2C1F00041BF7 /* XMMenuItem.m */; };
+		4400F3B9278C2C1F00041BF7 /* XMMenuItemBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3A9278C2C1F00041BF7 /* XMMenuItemBaseView.m */; };
+		4400F3BA278C2C1F00041BF7 /* XMMenuImageTextItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3AB278C2C1F00041BF7 /* XMMenuImageTextItemView.m */; };
+		4400F3BB278C2C1F00041BF7 /* XMMenuItemSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3AC278C2C1F00041BF7 /* XMMenuItemSystemView.m */; };
+		4400F3BC278C2C1F00041BF7 /* XMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3B0278C2C1F00041BF7 /* XMMenuView.m */; };
+		4400F3BD278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3B1278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m */; };
+		4400F3BE278C2C1F00041BF7 /* UIButton+XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = 4400F3B5278C2C1F00041BF7 /* UIButton+XMMenuPopover.m */; };
 		442EABEB275A15E7000B0345 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 442EABEA275A15E7000B0345 /* TableViewController.m */; };
 		44F993372770310D00628141 /* DemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F993362770310D00628141 /* DemoTableViewCell.m */; };
-		AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */; };
-		AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */; };
-		AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */; };
 		AEF183362632B05100F254C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183352632B05100F254C4 /* AppDelegate.m */; };
 		AEF183392632B05100F254C4 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183382632B05100F254C4 /* SceneDelegate.m */; };
 		AEF1833F2632B05100F254C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF1833D2632B05100F254C4 /* Main.storyboard */; };
 		AEF183412632B05200F254C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEF183402632B05200F254C4 /* Assets.xcassets */; };
 		AEF183442632B05200F254C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEF183422632B05200F254C4 /* LaunchScreen.storyboard */; };
 		AEF183472632B05200F254C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183462632B05200F254C4 /* main.m */; };
-		AEF183502632B20800F254C4 /* XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1834F2632B20800F254C4 /* XMMenuPopover.m */; };
-		AEF1837B263538D100F254C4 /* XMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1837A263538D100F254C4 /* XMMenuItem.m */; };
-		AEF1838026353B3400F254C4 /* XMMenuItemBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1837F26353B3400F254C4 /* XMMenuItemBaseView.m */; };
-		AEF183842635463100F254C4 /* XMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF183832635463100F254C4 /* XMMenuView.m */; };
-		AEF1839926369D7600F254C4 /* UIButton+XMMenuPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF1839826369D7600F254C4 /* UIButton+XMMenuPopover.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		440F28252745438B009E145F /* XMMenuImageTextItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuImageTextItemView.h; sourceTree = "<group>"; };
-		440F28262745438B009E145F /* XMMenuImageTextItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuImageTextItemView.m; sourceTree = "<group>"; };
+		4400F39F278C2C1F00041BF7 /* XMMenuPopoverDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuPopoverDefine.h; sourceTree = "<group>"; };
+		4400F3A0278C2C1F00041BF7 /* XMMenuPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopover.m; sourceTree = "<group>"; };
+		4400F3A2278C2C1F00041BF7 /* XMMenuItemConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemConfig.m; sourceTree = "<group>"; };
+		4400F3A3278C2C1F00041BF7 /* XMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuItem.h; sourceTree = "<group>"; };
+		4400F3A4278C2C1F00041BF7 /* XMMenuItemConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuItemConfig.h; sourceTree = "<group>"; };
+		4400F3A5278C2C1F00041BF7 /* XMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuItem.m; sourceTree = "<group>"; };
+		4400F3A8278C2C1F00041BF7 /* XMMenuImageTextItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuImageTextItemView.h; sourceTree = "<group>"; };
+		4400F3A9278C2C1F00041BF7 /* XMMenuItemBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemBaseView.m; sourceTree = "<group>"; };
+		4400F3AA278C2C1F00041BF7 /* XMMenuItemSystemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuItemSystemView.h; sourceTree = "<group>"; };
+		4400F3AB278C2C1F00041BF7 /* XMMenuImageTextItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuImageTextItemView.m; sourceTree = "<group>"; };
+		4400F3AC278C2C1F00041BF7 /* XMMenuItemSystemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemSystemView.m; sourceTree = "<group>"; };
+		4400F3AD278C2C1F00041BF7 /* XMMenuItemBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuItemBaseView.h; sourceTree = "<group>"; };
+		4400F3AE278C2C1F00041BF7 /* XMMenuPopoverOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuPopoverOverlayView.h; sourceTree = "<group>"; };
+		4400F3AF278C2C1F00041BF7 /* XMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuView.h; sourceTree = "<group>"; };
+		4400F3B0278C2C1F00041BF7 /* XMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuView.m; sourceTree = "<group>"; };
+		4400F3B1278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopoverOverlayView.m; sourceTree = "<group>"; };
+		4400F3B2278C2C1F00041BF7 /* XMMenuPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMMenuPopover.h; sourceTree = "<group>"; };
+		4400F3B4278C2C1F00041BF7 /* UIButton+XMMenuPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XMMenuPopover.h"; sourceTree = "<group>"; };
+		4400F3B5278C2C1F00041BF7 /* UIButton+XMMenuPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XMMenuPopover.m"; sourceTree = "<group>"; };
 		442EABE9275A15E7000B0345 /* TableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
 		442EABEA275A15E7000B0345 /* TableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 		44F993352770310D00628141 /* DemoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoTableViewCell.h; sourceTree = "<group>"; };
 		44F993362770310D00628141 /* DemoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewCell.m; sourceTree = "<group>"; };
-		AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemConfig.h; sourceTree = "<group>"; };
-		AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemConfig.m; sourceTree = "<group>"; };
-		AEE6F43D2636C05100AE4D35 /* XMMenuItemSystemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemSystemView.h; sourceTree = "<group>"; };
-		AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemSystemView.m; sourceTree = "<group>"; };
-		AEE6F46A26379EA300AE4D35 /* XMMenuPopoverOverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuPopoverOverlayView.h; sourceTree = "<group>"; };
-		AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopoverOverlayView.m; sourceTree = "<group>"; };
 		AEF183312632B05100F254C4 /* XMMenuPopover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMMenuPopover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF183342632B05100F254C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		AEF183352632B05100F254C4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,17 +60,6 @@
 		AEF183432632B05200F254C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEF183452632B05200F254C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AEF183462632B05200F254C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		AEF1834E2632B20800F254C4 /* XMMenuPopover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuPopover.h; sourceTree = "<group>"; };
-		AEF1834F2632B20800F254C4 /* XMMenuPopover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuPopover.m; sourceTree = "<group>"; };
-		AEF18379263538D100F254C4 /* XMMenuItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItem.h; sourceTree = "<group>"; };
-		AEF1837A263538D100F254C4 /* XMMenuItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItem.m; sourceTree = "<group>"; };
-		AEF1837E26353B3400F254C4 /* XMMenuItemBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuItemBaseView.h; sourceTree = "<group>"; };
-		AEF1837F26353B3400F254C4 /* XMMenuItemBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuItemBaseView.m; sourceTree = "<group>"; };
-		AEF183822635463100F254C4 /* XMMenuView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuView.h; sourceTree = "<group>"; };
-		AEF183832635463100F254C4 /* XMMenuView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMMenuView.m; sourceTree = "<group>"; };
-		AEF1838D2635663900F254C4 /* XMMenuPopoverDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMMenuPopoverDefine.h; sourceTree = "<group>"; };
-		AEF1839726369D7600F254C4 /* UIButton+XMMenuPopover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+XMMenuPopover.h"; sourceTree = "<group>"; };
-		AEF1839826369D7600F254C4 /* UIButton+XMMenuPopover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XMMenuPopover.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +73,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4400F39E278C2C1F00041BF7 /* XMMenuPopover */ = {
+			isa = PBXGroup;
+			children = (
+				4400F3B2278C2C1F00041BF7 /* XMMenuPopover.h */,
+				4400F3A0278C2C1F00041BF7 /* XMMenuPopover.m */,
+				4400F39F278C2C1F00041BF7 /* XMMenuPopoverDefine.h */,
+				4400F3B3278C2C1F00041BF7 /* Categorys */,
+				4400F3A1278C2C1F00041BF7 /* MenuModel */,
+				4400F3A6278C2C1F00041BF7 /* Views */,
+			);
+			path = XMMenuPopover;
+			sourceTree = "<group>";
+		};
+		4400F3A1278C2C1F00041BF7 /* MenuModel */ = {
+			isa = PBXGroup;
+			children = (
+				4400F3A2278C2C1F00041BF7 /* XMMenuItemConfig.m */,
+				4400F3A3278C2C1F00041BF7 /* XMMenuItem.h */,
+				4400F3A4278C2C1F00041BF7 /* XMMenuItemConfig.h */,
+				4400F3A5278C2C1F00041BF7 /* XMMenuItem.m */,
+			);
+			path = MenuModel;
+			sourceTree = "<group>";
+		};
+		4400F3A6278C2C1F00041BF7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4400F3A7278C2C1F00041BF7 /* MenuItemViews */,
+				4400F3AE278C2C1F00041BF7 /* XMMenuPopoverOverlayView.h */,
+				4400F3AF278C2C1F00041BF7 /* XMMenuView.h */,
+				4400F3B0278C2C1F00041BF7 /* XMMenuView.m */,
+				4400F3B1278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		4400F3A7278C2C1F00041BF7 /* MenuItemViews */ = {
+			isa = PBXGroup;
+			children = (
+				4400F3A8278C2C1F00041BF7 /* XMMenuImageTextItemView.h */,
+				4400F3A9278C2C1F00041BF7 /* XMMenuItemBaseView.m */,
+				4400F3AA278C2C1F00041BF7 /* XMMenuItemSystemView.h */,
+				4400F3AB278C2C1F00041BF7 /* XMMenuImageTextItemView.m */,
+				4400F3AC278C2C1F00041BF7 /* XMMenuItemSystemView.m */,
+				4400F3AD278C2C1F00041BF7 /* XMMenuItemBaseView.h */,
+			);
+			path = MenuItemViews;
+			sourceTree = "<group>";
+		};
+		4400F3B3278C2C1F00041BF7 /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				4400F3B4278C2C1F00041BF7 /* UIButton+XMMenuPopover.h */,
+				4400F3B5278C2C1F00041BF7 /* UIButton+XMMenuPopover.m */,
+			);
+			path = Categorys;
+			sourceTree = "<group>";
+		};
 		AEF183282632B05100F254C4 = {
 			isa = PBXGroup;
 			children = (
-				AEF183332632B05100F254C4 /* XMMenuPopover */,
+				4400F39E278C2C1F00041BF7 /* XMMenuPopover */,
+				AEF183332632B05100F254C4 /* XMMenuPopoverDemo */,
 				AEF183322632B05100F254C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,7 +148,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AEF183332632B05100F254C4 /* XMMenuPopover */ = {
+		AEF183332632B05100F254C4 /* XMMenuPopoverDemo */ = {
 			isa = PBXGroup;
 			children = (
 				AEF183342632B05100F254C4 /* AppDelegate.h */,
@@ -100,72 +159,13 @@
 				442EABEA275A15E7000B0345 /* TableViewController.m */,
 				44F993352770310D00628141 /* DemoTableViewCell.h */,
 				44F993362770310D00628141 /* DemoTableViewCell.m */,
-				AEF18377263538AA00F254C4 /* XMMenuPopover */,
 				AEF1833D2632B05100F254C4 /* Main.storyboard */,
 				AEF183402632B05200F254C4 /* Assets.xcassets */,
 				AEF183422632B05200F254C4 /* LaunchScreen.storyboard */,
 				AEF183452632B05200F254C4 /* Info.plist */,
 				AEF183462632B05200F254C4 /* main.m */,
 			);
-			path = XMMenuPopover;
-			sourceTree = "<group>";
-		};
-		AEF18377263538AA00F254C4 /* XMMenuPopover */ = {
-			isa = PBXGroup;
-			children = (
-				AEF1834E2632B20800F254C4 /* XMMenuPopover.h */,
-				AEF1834F2632B20800F254C4 /* XMMenuPopover.m */,
-				AEF1838F2636971200F254C4 /* Views */,
-				AEF183912636973400F254C4 /* MenuModel */,
-				AEF1839526369D4B00F254C4 /* Categorys */,
-				AEF1838D2635663900F254C4 /* XMMenuPopoverDefine.h */,
-			);
-			path = XMMenuPopover;
-			sourceTree = "<group>";
-		};
-		AEF1838F2636971200F254C4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				AEF183822635463100F254C4 /* XMMenuView.h */,
-				AEF183832635463100F254C4 /* XMMenuView.m */,
-				AEE6F46A26379EA300AE4D35 /* XMMenuPopoverOverlayView.h */,
-				AEE6F46B26379EA300AE4D35 /* XMMenuPopoverOverlayView.m */,
-				AEF183932636974800F254C4 /* MenuItemViews */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		AEF183912636973400F254C4 /* MenuModel */ = {
-			isa = PBXGroup;
-			children = (
-				AEF18379263538D100F254C4 /* XMMenuItem.h */,
-				AEF1837A263538D100F254C4 /* XMMenuItem.m */,
-				AEB4CE9526FDDB58009B0CC8 /* XMMenuItemConfig.h */,
-				AEB4CE9626FDDB58009B0CC8 /* XMMenuItemConfig.m */,
-			);
-			path = MenuModel;
-			sourceTree = "<group>";
-		};
-		AEF183932636974800F254C4 /* MenuItemViews */ = {
-			isa = PBXGroup;
-			children = (
-				AEF1837E26353B3400F254C4 /* XMMenuItemBaseView.h */,
-				AEF1837F26353B3400F254C4 /* XMMenuItemBaseView.m */,
-				AEE6F43D2636C05100AE4D35 /* XMMenuItemSystemView.h */,
-				AEE6F43E2636C05100AE4D35 /* XMMenuItemSystemView.m */,
-				440F28252745438B009E145F /* XMMenuImageTextItemView.h */,
-				440F28262745438B009E145F /* XMMenuImageTextItemView.m */,
-			);
-			path = MenuItemViews;
-			sourceTree = "<group>";
-		};
-		AEF1839526369D4B00F254C4 /* Categorys */ = {
-			isa = PBXGroup;
-			children = (
-				AEF1839726369D7600F254C4 /* UIButton+XMMenuPopover.h */,
-				AEF1839826369D7600F254C4 /* UIButton+XMMenuPopover.m */,
-			);
-			path = Categorys;
+			path = XMMenuPopoverDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,20 +237,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AEF1837B263538D100F254C4 /* XMMenuItem.m in Sources */,
+				4400F3BC278C2C1F00041BF7 /* XMMenuView.m in Sources */,
+				4400F3B8278C2C1F00041BF7 /* XMMenuItem.m in Sources */,
 				44F993372770310D00628141 /* DemoTableViewCell.m in Sources */,
+				4400F3B9278C2C1F00041BF7 /* XMMenuItemBaseView.m in Sources */,
+				4400F3B7278C2C1F00041BF7 /* XMMenuItemConfig.m in Sources */,
+				4400F3BB278C2C1F00041BF7 /* XMMenuItemSystemView.m in Sources */,
 				AEF183362632B05100F254C4 /* AppDelegate.m in Sources */,
-				AEE6F46C26379EA300AE4D35 /* XMMenuPopoverOverlayView.m in Sources */,
-				AEF1839926369D7600F254C4 /* UIButton+XMMenuPopover.m in Sources */,
 				442EABEB275A15E7000B0345 /* TableViewController.m in Sources */,
-				440F28272745438B009E145F /* XMMenuImageTextItemView.m in Sources */,
-				AEE6F43F2636C05100AE4D35 /* XMMenuItemSystemView.m in Sources */,
-				AEB4CE9726FDDB58009B0CC8 /* XMMenuItemConfig.m in Sources */,
+				4400F3BA278C2C1F00041BF7 /* XMMenuImageTextItemView.m in Sources */,
+				4400F3BD278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m in Sources */,
+				4400F3B6278C2C1F00041BF7 /* XMMenuPopover.m in Sources */,
+				4400F3BE278C2C1F00041BF7 /* UIButton+XMMenuPopover.m in Sources */,
 				AEF183472632B05200F254C4 /* main.m in Sources */,
-				AEF183502632B20800F254C4 /* XMMenuPopover.m in Sources */,
 				AEF183392632B05100F254C4 /* SceneDelegate.m in Sources */,
-				AEF183842635463100F254C4 /* XMMenuView.m in Sources */,
-				AEF1838026353B3400F254C4 /* XMMenuItemBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,7 +395,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K28GUJNYK7;
-				INFOPLIST_FILE = XMMenuPopover/Info.plist;
+				INFOPLIST_FILE = XMMenuPopoverDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,7 +413,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K28GUJNYK7;
-				INFOPLIST_FILE = XMMenuPopover/Info.plist;
+				INFOPLIST_FILE = XMMenuPopoverDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
