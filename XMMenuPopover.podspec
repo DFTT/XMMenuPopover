@@ -6,6 +6,6 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "guoyonghong" => "guoyonghong@021.com" }
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/DFTT/XMMenuPopover.git", :tag => "#{spec.version}" }
+  s.source       = { :git => "https://github.com/DFTT/XMMenuPopover.git", :tag => "#{s.version}" }
   s.source_files = "XMMenuPopover"
 end
