@@ -27,23 +27,23 @@
 
 #### 1. 自定义纯文本样式 `XMMenuStyleDefault`
 
-<img src="./images/XMMenuPopover1.gif"/ width=40%>
+<img src="./images/XMMenuPopover1.gif" width=40% />
 
 #### 2. 仿系统纯文本样式 `XMMenuStyleSystem`
 
-<img src="./images/XMMenuPopover3.gif"/ width=40%>
+<img src="./images/XMMenuPopover3.gif" width=40% />
 
 #### 3. 图文样式 `XMMenuStyleImageText`
 
-<img src="./images/XMMenuPopover2.gif"/ width=40%>
+<img src="./images/XMMenuPopover2.gif" width=40% />
 
 #### 4. 自定义View样式 `XMMenuStyleCustom`
 
-<img src="./images/XMMenuPopover4.gif"/ width=40%>
+<img src="./images/XMMenuPopover4.gif" width=40% />
 
 #### 5. 自定义菜单项风格
 
-<img src="./images/XMMenuPopover5.gif"/ width=40%>
+<img src="./images/XMMenuPopover5.gif" width=40% />
 
 ***PS: 更多样式请查看demo***
 
