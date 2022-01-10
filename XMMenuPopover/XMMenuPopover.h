@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) XMMenuStyle style;
 @property(nullable,nonatomic,copy) NSArray<XMMenuItem *> *menuItems;
 
-/// 菜单项配置，可在此处设置一个总配置，你也可以单独为每个菜单项单独配置
+/// 菜单项配置，可在此处设置一个总配置，你也可以单独为每个菜单项单独配置, 可以设置字体颜色、字体大小、背景色、选中背景色等
 @property(nonatomic, strong) XMMenuItemConfig *itemConfig;
 
 /// 气泡圆角，默认值： 5
