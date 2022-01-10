@@ -7,7 +7,8 @@
 
 
 ### Installation
-<!-- #### 一、Cocoapods
+
+#### 一、Cocoapods
 	
 *  在Podfile文件中添加
 	
@@ -19,9 +20,9 @@
 * 命令行执行
 
 	*  `pod repo update master`
-	*  `pod install` -->
+	*  `pod install`
 
-#### 复制`XMMenuPopover `文件夹至您的项目中即可
+#### 二、复制`XMMenuPopover `文件夹至您的项目中即可
 
 ### Example
 
