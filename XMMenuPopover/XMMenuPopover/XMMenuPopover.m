@@ -63,9 +63,10 @@ XMMenuPopover *popover;
     }
     self.needAnimate = animated;
     
-    NSAssert(_menuItems != nil, @"菜单项`_menuItems`不能为空");
     if (_style == XMMenuStyleCustom) {
         NSAssert(_customView != nil, @"自定义类型的 `customView`不能为空");
+    } else {
+        NSAssert(_menuItems != nil, @"菜单项`_menuItems`不能为空");
     }
     //确定展示位置
     [self updatePosition:targetView rect:targetRect];
@@ -189,7 +190,7 @@ XMMenuPopover *popover;
     //兜底的默认配置
     for (XMMenuItem *item in menuItems) {
         if (item.config == nil) {
-            item.config = [XMMenuItemConfig configWithStyle:self.style];
+            item.config = self.itemConfig ?: [XMMenuItemConfig configWithStyle:self.style];
         }
     }
     _menuItems = menuItems;

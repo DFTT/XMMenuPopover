@@ -104,6 +104,7 @@
 - (CGFloat)calculationWidthWithStyle:(XMMenuStyle)style {
     switch (style) {
         case XMMenuStyleSystem: {
+            if (self.title == nil || self.title.length == 0) { return 63; }
             if ([_widthMap.allKeys containsObject:self.title]) {
                 return [_widthMap objectForKey:self.title].floatValue;
             }
@@ -114,6 +115,7 @@
         }
         case XMMenuStyleImageText:    return 50;
         default:
+            if (self.title == nil || self.title.length == 0) { return 45; }
             if ([_widthMap.allKeys containsObject:self.title]) {
                 return [_widthMap objectForKey:self.title].floatValue;
             }
