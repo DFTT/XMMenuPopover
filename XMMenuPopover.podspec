@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.author       = { "DFTT" => "guoyonghong@021.com" }
   s.platform     = :ios, "10.0"
   s.source       = { :git => "https://github.com/DFTT/XMMenuPopover.git", :tag => "#{s.version}" }
-  s.source_files = "MenuPopover/*"
+  s.source_files = "MenuPopover/**/*.{h,m}"
 end
