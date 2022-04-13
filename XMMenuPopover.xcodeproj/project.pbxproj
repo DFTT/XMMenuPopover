@@ -73,7 +73,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4400F39E278C2C1F00041BF7 /* XMMenuPopover */ = {
+		4400F39E278C2C1F00041BF7 /* MenuPopover */ = {
 			isa = PBXGroup;
 			children = (
 				4400F3B2278C2C1F00041BF7 /* XMMenuPopover.h */,
@@ -83,7 +83,7 @@
 				4400F3A1278C2C1F00041BF7 /* MenuModel */,
 				4400F3A6278C2C1F00041BF7 /* Views */,
 			);
-			path = XMMenuPopover;
+			path = MenuPopover;
 			sourceTree = "<group>";
 		};
 		4400F3A1278C2C1F00041BF7 /* MenuModel */ = {
@@ -134,7 +134,7 @@
 		AEF183282632B05100F254C4 = {
 			isa = PBXGroup;
 			children = (
-				4400F39E278C2C1F00041BF7 /* XMMenuPopover */,
+				4400F39E278C2C1F00041BF7 /* MenuPopover */,
 				AEF183332632B05100F254C4 /* XMMenuPopoverDemo */,
 				AEF183322632B05100F254C4 /* Products */,
 			);
