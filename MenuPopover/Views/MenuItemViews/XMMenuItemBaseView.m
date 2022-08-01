@@ -89,7 +89,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _actionBtn.frame = self.bounds;
-    _verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - 0.5, (CGRectGetHeight(self.bounds) - 12) / 2, 0.5, 12);
+    _verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - (1.0 / UIScreen.mainScreen.scale), (CGRectGetHeight(self.bounds) - 12) / 2, (1.0 / UIScreen.mainScreen.scale), 12);
 }
 
 @end

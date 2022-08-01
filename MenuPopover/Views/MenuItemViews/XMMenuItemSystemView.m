@@ -11,7 +11,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - 0.5, 0, 0.5, CGRectGetHeight(self.bounds));
+    self.verticalLineView.frame = CGRectMake(CGRectGetWidth(self.bounds) - (1.0 / UIScreen.mainScreen.scale), 0, (1.0 / UIScreen.mainScreen.scale), CGRectGetHeight(self.bounds));
 }
 
 @end
