@@ -42,7 +42,7 @@
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(id)image
                 actionHandler:(void (^)(void))handler {
     self = [super init];
     if (self) {
@@ -53,12 +53,18 @@
     return self;
 }
 
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(id)image
                        target:(id)target
                        action:(SEL)action {
     self = [super init];
     if (self) {
-        self.image = image;
+        if ([image isKindOfClass:[UIImage class]]) {
+            self.image = (UIImage *)image;
+        } else if ([image isKindOfClass:[NSString class]]) {
+            self.image = [UIImage imageNamed:(NSString *)image];
+        } else {
+            NSAssert(false, @"image must be of type UIImage or NSString");
+        }
         self.action = action;
         self.target = target;
         [self setup];
@@ -67,12 +73,18 @@
 }
 
 - (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
+                        image:(id)image
                 actionHandler:(void (^)(void))handler {
     self = [super init];
     if (self) {
         self.title = title;
-        self.image = image;
+        if ([image isKindOfClass:[UIImage class]]) {
+            self.image = (UIImage *)image;
+        } else if ([image isKindOfClass:[NSString class]]) {
+            self.image = [UIImage imageNamed:(NSString *)image];
+        } else {
+            NSAssert(false, @"image must be of type UIImage or NSString");
+        }
         self.handler = handler;
         [self setup];
     }
@@ -80,13 +92,19 @@
 }
 
 - (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
+                        image:(id)image
                        target:(id)target
                        action:(SEL)action {
     self = [super init];
     if (self) {
         self.title = title;
-        self.image = image;
+        if ([image isKindOfClass:[UIImage class]]) {
+            self.image = (UIImage *)image;
+        } else if ([image isKindOfClass:[NSString class]]) {
+            self.image = [UIImage imageNamed:(NSString *)image];
+        } else {
+            NSAssert(false, @"image must be of type UIImage or NSString");
+        }
         self.action = action;
         self.target = target;
         [self setup];

@@ -98,6 +98,10 @@
         item3.title = @"选择";
     }
     
+    if (style == 1 || style == 2 || style == 3) {
+        item1.config = [self customConfig];
+    }
+    
     menu.menuItems = @[item1,item2,item3];
     [menu showMenuFromView:targetView rect:targetView.bounds animated:YES];
 }
@@ -127,7 +131,7 @@
         menu.itemConfig = [self customConfig];
     }
     menu.avoidTopMargin += 44;
-    XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{}];
+    XMMenuItem *item1 = [[XMMenuItem alloc] initWithTitle:@"复制" image:@"img_menu_item_copy" actionHandler:^{}];
     XMMenuItem *item2 = [[XMMenuItem alloc] initWithTitle:@"删除" image:[UIImage imageNamed:@"img_menu_item_delete"] actionHandler:^{}];
     XMMenuItem *item3 = [[XMMenuItem alloc] initWithTitle:@"撤回" image:[UIImage imageNamed:@"img_menu_item_revoke"] actionHandler:^{}];
     XMMenuItem *item4 = [[XMMenuItem alloc] initWithTitle:@"收藏" image:[UIImage imageNamed:@"img_menu_item_zmoji_add"] actionHandler:^{}];
@@ -138,6 +142,11 @@
     XMMenuItem *item9 = [[XMMenuItem alloc] initWithImage:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{}];
     XMMenuItem *item10 = [[XMMenuItem alloc] initWithTitle:@"复制" image:[UIImage imageNamed:@"img_menu_item_copy"] actionHandler:^{}];
     
+    if (style == 1 || style == 2 || style == 3) {
+        item1.config = [self customConfig];
+        item3.config = [self customConfig];
+        item5.config = [self customConfig];
+    }
     NSMutableArray *menus = [NSMutableArray arrayWithArray:@[item1, item2, item3, item4, item5, item6, item7, item8, item10]];
     
     //MARK: - 只有图文样式才支持纯图片

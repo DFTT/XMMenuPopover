@@ -89,10 +89,10 @@
 		4400F3A1278C2C1F00041BF7 /* MenuModel */ = {
 			isa = PBXGroup;
 			children = (
-				4400F3A2278C2C1F00041BF7 /* XMMenuItemConfig.m */,
 				4400F3A3278C2C1F00041BF7 /* XMMenuItem.h */,
-				4400F3A4278C2C1F00041BF7 /* XMMenuItemConfig.h */,
 				4400F3A5278C2C1F00041BF7 /* XMMenuItem.m */,
+				4400F3A4278C2C1F00041BF7 /* XMMenuItemConfig.h */,
+				4400F3A2278C2C1F00041BF7 /* XMMenuItemConfig.m */,
 			);
 			path = MenuModel;
 			sourceTree = "<group>";
@@ -101,9 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				4400F3A7278C2C1F00041BF7 /* MenuItemViews */,
-				4400F3AE278C2C1F00041BF7 /* XMMenuPopoverOverlayView.h */,
 				4400F3AF278C2C1F00041BF7 /* XMMenuView.h */,
 				4400F3B0278C2C1F00041BF7 /* XMMenuView.m */,
+				4400F3AE278C2C1F00041BF7 /* XMMenuPopoverOverlayView.h */,
 				4400F3B1278C2C1F00041BF7 /* XMMenuPopoverOverlayView.m */,
 			);
 			path = Views;
@@ -112,12 +112,12 @@
 		4400F3A7278C2C1F00041BF7 /* MenuItemViews */ = {
 			isa = PBXGroup;
 			children = (
-				4400F3A8278C2C1F00041BF7 /* XMMenuImageTextItemView.h */,
+				4400F3AD278C2C1F00041BF7 /* XMMenuItemBaseView.h */,
 				4400F3A9278C2C1F00041BF7 /* XMMenuItemBaseView.m */,
 				4400F3AA278C2C1F00041BF7 /* XMMenuItemSystemView.h */,
-				4400F3AB278C2C1F00041BF7 /* XMMenuImageTextItemView.m */,
 				4400F3AC278C2C1F00041BF7 /* XMMenuItemSystemView.m */,
-				4400F3AD278C2C1F00041BF7 /* XMMenuItemBaseView.h */,
+				4400F3A8278C2C1F00041BF7 /* XMMenuImageTextItemView.h */,
+				4400F3AB278C2C1F00041BF7 /* XMMenuImageTextItemView.m */,
 			);
 			path = MenuItemViews;
 			sourceTree = "<group>";

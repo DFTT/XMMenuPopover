@@ -41,17 +41,17 @@ NS_ASSUME_NONNULL_BEGIN
                 actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
 
 /// 仅包含图片 - 其他属性默认
-/// @param image 图片
+/// @param image 图片 【UIimage对象 或者 NSString图片名】
 /// @param handler 事件回调
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(id)image
                 actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
 
 /// 图文 - 其他属性默认
 /// @param title 标题
-/// @param image 图片
+/// @param image 图片 【UIimage对象 或者 NSString图片名】
 /// @param handler 事件回调
 - (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
+                        image:(id)image
                 actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
 
 //MARK: Target SEL 方式初始化
@@ -65,20 +65,20 @@ NS_ASSUME_NONNULL_BEGIN
                        action:(SEL)action NS_DESIGNATED_INITIALIZER;
 
 /// 仅包含图片 - 其他属性默认
-/// @param image 标题
+/// @param image 图片 【UIimage对象 或者 NSString图片名】
 /// @param target 事件响应者
 /// @param action 事件 SEL
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(id)image
                        target:(id)target
                        action:(SEL)action NS_DESIGNATED_INITIALIZER;
 
 /// 图文 - 其他属性默认
 /// @param title 标题
-/// @param image 标题
+/// @param image 图片 【UIimage对象 或者 NSString图片名】
 /// @param target 事件响应者
 /// @param action 事件 SEL
 - (instancetype)initWithTitle:(NSString *)title
-                        image:(UIImage *)image
+                        image:(id)image
                        target:(id)target
                        action:(SEL)action NS_DESIGNATED_INITIALIZER;
 
