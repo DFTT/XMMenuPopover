@@ -38,13 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param title 标题
 /// @param handler 事件回调
 - (instancetype)initWithTitle:(NSString *)title
-                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
+                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(title:_:));
 
 /// 仅包含图片 - 其他属性默认
 /// @param image 图片 【UIimage对象 或者 NSString图片名】
 /// @param handler 事件回调
 - (instancetype)initWithImage:(id)image
-                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
+                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(image:_:));
 
 /// 图文 - 其他属性默认
 /// @param title 标题
@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param handler 事件回调
 - (instancetype)initWithTitle:(NSString *)title
                         image:(id)image
-                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER;
+                actionHandler:(void (^)(void))handler NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(title:image:_:));
 
 //MARK: Target SEL 方式初始化
 
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param action 事件 SEL
 - (instancetype)initWithTitle:(NSString *)title
                        target:(id)target
-                       action:(SEL)action NS_DESIGNATED_INITIALIZER;
+                       action:(SEL)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(title:target:action:));
 
 /// 仅包含图片 - 其他属性默认
 /// @param image 图片 【UIimage对象 或者 NSString图片名】
@@ -70,7 +70,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param action 事件 SEL
 - (instancetype)initWithImage:(id)image
                        target:(id)target
-                       action:(SEL)action NS_DESIGNATED_INITIALIZER;
+                       action:(SEL)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(image:target:action:));
 
 /// 图文 - 其他属性默认
 /// @param title 标题
@@ -80,7 +80,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithTitle:(NSString *)title
                         image:(id)image
                        target:(id)target
-                       action:(SEL)action NS_DESIGNATED_INITIALIZER;
+                       action:(SEL)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(title:image:target:action:));
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

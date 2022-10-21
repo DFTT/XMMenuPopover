@@ -43,13 +43,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,readonly) CGRect menuFrame;
 
+/// 回调事件点击的点
+@property(nonatomic,copy) void (^tapPointHandler)(CGPoint);
+
+//消失动画正在进行中 - 防止点击事件重复调用
+@property (nonatomic,assign) BOOL menuInHideAnimation;
+
 /// 展示菜单项控件
 - (void)showMenuFromView:(UIView *)targetView
-                    rect:(CGRect)targetRect;
+                    rect:(CGRect)targetRect NS_SWIFT_NAME(show(from:rect:));
 /// 展示菜单项控件
 - (void)showMenuFromView:(UIView *)targetView
                     rect:(CGRect)targetRect
-                animated:(BOOL)animated;
+                animated:(BOOL)animated NS_SWIFT_NAME(show(from:rect:animated:));
 /// 隐藏菜单项控件
 - (void)hideMenu;
 

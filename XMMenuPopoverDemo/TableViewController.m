@@ -121,6 +121,9 @@
         return;
     }
     XMMenuPopover *menu = [XMMenuPopover sharedMenuPopover];
+    menu.tapPointHandler = ^(CGPoint point) {
+        NSLog(@"%@", @(point));
+    };
     menu.style = style;
     
     //MARK: 自定义菜单项风格

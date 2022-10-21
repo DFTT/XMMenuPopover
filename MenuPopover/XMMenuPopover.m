@@ -79,6 +79,8 @@ XMMenuPopover *popover;
     
     //更新UI
     [self update];
+    
+    self.menuInHideAnimation = NO;
 }
 
 - (void)updatePosition:(UIView *)targetView rect:(CGRect)targetRect {
@@ -127,17 +129,20 @@ XMMenuPopover *popover;
 
 - (void)hideMenu {
     if (self.menuView.superview) {
+        self.menuInHideAnimation = YES;
         if (self.needAnimate) {
             [UIView animateWithDuration:0.2 animations:^{
                 self.menuView.alpha = 0;
             } completion:^(BOOL finished) {
                 [self.menuView removeFromSuperview];
                 [self.overlayView removeFromSuperview];
+                self.menuInHideAnimation = NO;
                 popover = nil;
             }];
         } else {
             [self.menuView removeFromSuperview];
             [self.overlayView removeFromSuperview];
+            self.menuInHideAnimation = NO;
             popover = nil;
         }
     }
